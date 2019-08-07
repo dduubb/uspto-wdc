@@ -171,10 +171,10 @@
                 }
                 if (table.tableInfo.id == "ipcData") {
                     for (var n = 0, lenn = patents[i].ipcs.length; n < lenn; n++) {
-                        if (patents[i].ipcs[n].ipc_group_title) {
+                        if (patents[i].ipcs[n].ipc_class) {
                             tableData.push({
                                 "patent_number": patents[i].patent_number,
-                                "ipc_group_title": patents[i].ipcs[n].ipc_group_title,
+                                "ipc_class": patents[i].ipcs[n].ipc_class,
                             });
                         }
                     }
