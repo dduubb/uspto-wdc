@@ -69,7 +69,7 @@
                 id: "cpcData",
                 alias: "US cpc Data",
                 columns: cpcCols
-            }, cpcTableInfo = {
+            }, ipcTableInfo = {
                 id: "ipcData",
                 alias: "US ipc Data",
                 columns: ipcCols
