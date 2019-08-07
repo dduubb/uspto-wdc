@@ -77,7 +77,7 @@
 
 
 
-        schemaCallback([patentTableInfo, inventorTableInfo, assigneeTableInfo, wipoTableInfo, uspcTableInfo, nberTableInfo, cpcTableInfo, ipcTableInfo]]);
+        schemaCallback([patentTableInfo, inventorTableInfo, assigneeTableInfo, wipoTableInfo, uspcTableInfo, nberTableInfo, cpcTableInfo, ipcTableInfo]);
     };
 
     myConnector.getData = function (table, doneCallback) {
