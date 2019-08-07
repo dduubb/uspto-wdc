@@ -170,11 +170,11 @@
                     }
                 }
                 if (table.tableInfo.id == "ipcData") {
-                    for (var m = 0, lenm = patents[i].ipcs.length; m < lenm; m++) {
-                        if (patents[i].ipcs[m].ipc_class) {
+                    for (var m = 0, lenm = patents[i].IPCs.length; m < lenm; m++) {
+                        if (patents[i].IPCs[m].ipc_class) {
                             tableData.push({
                                 "patent_number": patents[i].patent_number,
-                                "ipc_class": patents[i].ipcs[m].ipc_class,
+                                "ipc_class": patents[i].IPCs[m].ipc_class,
                             });
                         }
                     }
