@@ -36,6 +36,9 @@
         ], cpcCols = [
             { id: "patent_number", alias: "patent_number", dataType: tableau.dataTypeEnum.string },
             { id: "cpc_group_title", alias: "cpc_group_title", dataType: tableau.dataTypeEnum.string },
+        ], ipcCols = [
+            { id: "patent_number", alias: "patent_number", dataType: tableau.dataTypeEnum.string },
+            { id: "ipc_class", alias: "ipc_class", dataType: tableau.dataTypeEnum.string },
         ],
             patentTableInfo = {
                 id: "patentData",
@@ -66,11 +69,15 @@
                 id: "cpcData",
                 alias: "US cpc Data",
                 columns: cpcCols
+            }, cpcTableInfo = {
+                id: "ipcData",
+                alias: "US ipc Data",
+                columns: ipcCols
             };
 
 
 
-        schemaCallback([patentTableInfo, inventorTableInfo, assigneeTableInfo, wipoTableInfo, uspcTableInfo, nberTableInfo, cpcTableInfo]);
+        schemaCallback([patentTableInfo, inventorTableInfo, assigneeTableInfo, wipoTableInfo, uspcTableInfo, nberTableInfo, cpcTableInfo, ipcTableInfo]]);
     };
 
     myConnector.getData = function (table, doneCallback) {
@@ -158,6 +165,16 @@
                             tableData.push({
                                 "patent_number": patents[i].patent_number,
                                 "cpc_group_title": patents[i].cpcs[m].cpc_group_title,
+                            });
+                        }
+                    }
+                }
+                if (table.tableInfo.id == "ipcData") {
+                    for (var n = 0, lenn = patents[i].ipcs.length; n < lenn; n++) {
+                        if (patents[i].ipcs[n].ipc_group_title) {
+                            tableData.push({
+                                "patent_number": patents[i].patent_number,
+                                "ipc_group_title": patents[i].ipcs[n].ipc_group_title,
                             });
                         }
                     }
