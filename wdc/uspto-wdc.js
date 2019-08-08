@@ -7,8 +7,7 @@
             { id: "lastId", alias: "lastId", dataType: tableau.dataTypeEnum.string },
             { id: "patent_number", alias: "patent_number", dataType: tableau.dataTypeEnum.string },
             { id: "patent_year", alias: "patent_year", dataType: tableau.dataTypeEnum.string },
-            { id: "patent_abstract", alias: "patent_abstract", dataType: tableau.dataTypeEnum.string },
-            
+            { id: "patent_abstract", alias: "patent_abstract", dataType: tableau.dataTypeEnum.string },            
         ], inventorCols = [
             { id: "patent_number", alias: "patent_number", dataType: tableau.dataTypeEnum.string },
             { id: "inventor_id", alias: "inventor_id", dataType: tableau.dataTypeEnum.string },
@@ -39,8 +38,7 @@
         ], ipcCols = [
             { id: "patent_number", alias: "patent_number", dataType: tableau.dataTypeEnum.string },
             { id: "ipc_code", alias: "ipc_code", dataType: tableau.dataTypeEnum.string },
-            { id: "cluster_by_ipc", alias: "cluster_by_ipc", dataType: tableau.dataTypeEnum.string },
-            
+            { id: "cluster_by_ipc", alias: "cluster_by_ipc", dataType: tableau.dataTypeEnum.string },            
         ],
             patentTableInfo = {
                 id: "patentData",
