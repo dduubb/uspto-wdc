@@ -84,7 +84,7 @@
     myConnector.getData = function (table, doneCallback) {
         
         var queryObj = JSON.parse(tableau.connectionData);
-        $.getJSON('http://www.patentsview.org/api/patents/query?q={"' + queryObj.filterKey + '":"' + queryObj.filterValue + '"}&o={"page":' + queryObj.page + ',"per_page":' + queryObj.per_page + '}&f=["patent_abstract", "assignee_id","assignee_latitude","assignee_longitude","assignee_last_name","assignee_first_name","patent_number","patent_title","inventor_id","patent_id","inventor_latitude","inventor_longitude", "patent_year",  "assignee_organization","inventor_city","inventor_last_name","inventor_first_name","wipo_sector_title", "uspc_mainclass_title", "inventor_state", "nber_category_title","inventor_country","cpc_group_title","ipc_section","ipc_subgroup","ipc_class","ipc_subclass"]&s=[{"' + queryObj.sortKey + '":"'+queryObj.sortValue+'"}]', function (resp) {
+        $.getJSON('http://www.patentsview.org/api/patents/query?q={"' + queryObj.filterKey + '":"' + queryObj.filterValue + '"}&o={"page":' + queryObj.page + ',"per_page":' + queryObj.per_page + '}&f=["patent_abstract", "assignee_id","assignee_latitude","assignee_longitude","assignee_last_name","assignee_first_name","patent_number","patent_title","inventor_id","patent_id","inventor_latitude","inventor_longitude", "patent_year",  "assignee_organization","inventor_city","inventor_last_name","inventor_first_name","wipo_sector_title", "uspc_mainclass_title", "inventor_state", "nber_category_title","inventor_country","cpc_group_title","ipc_section","ipc_class","ipc_subclass"]&s=[{"' + queryObj.sortKey + '":"'+queryObj.sortValue+'"}]', function (resp) {
 
             var patents = resp.patents,
                 tableData = [];
@@ -175,7 +175,7 @@
                         if (patents[i].IPCs[m].ipc_section) {
                             tableData.push({
                                 "patent_number": patents[i].patent_number,
-                                "ipc_code": patents[i].IPCs[m].ipc_section+patents[i].IPCs[m].ipc_class+patents[i].IPCs[m].ipc_subclass,
+                                "ipc_code": patents[i].IPCs[m].ipc_section+patents[i].IPCs[m].ipc_class+patents[i].IPCs[m].ipc_subclass.toUpperCase(),
                             });
                         }
                     }
