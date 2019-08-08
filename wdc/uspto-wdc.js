@@ -175,12 +175,12 @@
                 if (table.tableInfo.id == "ipcData") {
                     var ipcCode;
                     for (var m = 0, lenm = patents[i].IPCs.length; m < lenm; m++) {
-                        ipcCode = patents[i].IPCs[m].ipc_section+patents[i].IPCs[m].ipc_class+patents[i].IPCs[m].ipc_subclass.toUpperCase();
+                        //ipcCode = patents[i].IPCs[m].ipc_section+patents[i].IPCs[m].ipc_class+patents[i].IPCs[m].ipc_subclass.toUpperCase();
                         if (patents[i].IPCs[m].ipc_section) {
                             tableData.push({
                                 "patent_number": patents[i].patent_number,
-                                "ipc_code": ipcCode,
-                                "cluster_by_ipc" : clusterLookup[ipcCode.toString()].Cluster,
+                                "ipc_code": patents[i].IPCs[m].ipc_section+patents[i].IPCs[m].ipc_class+patents[i].IPCs[m].ipc_subclass.toUpperCase(),
+                                "cluster_by_ipc" : clusterLookup[patents[i].IPCs[m].ipc_section+patents[i].IPCs[m].ipc_class+patents[i].IPCs[m].ipc_subclass.toUpperCase()].Cluster,
                             });
                         }
                     }
