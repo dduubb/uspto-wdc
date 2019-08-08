@@ -5,6 +5,7 @@
         var patentCols = [
             { id: "lastId", alias: "lastId", dataType: tableau.dataTypeEnum.string }, 
             { id: "patent_title", alias: "patent_title", dataType: tableau.dataTypeEnum.string },
+            { id: "patent_year", alias: "patent_year", dataType: tableau.dataTypeEnum.string },
         ], inventorCols = [
             { id: "patent_number", alias: "patent_number", dataType: tableau.dataTypeEnum.string },
             { id: "inventor_id", alias: "inventor_id", dataType: tableau.dataTypeEnum.string },
