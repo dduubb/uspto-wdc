@@ -38,7 +38,7 @@
             { id: "cpc_group_title", alias: "cpc_group_title", dataType: tableau.dataTypeEnum.string },
         ], ipcCols = [
             { id: "patent_number", alias: "patent_number", dataType: tableau.dataTypeEnum.string },
-            { id: "ipc_class", alias: "ipc_class", dataType: tableau.dataTypeEnum.string },
+            { id: "ipc_code", alias: "ipc_code", dataType: tableau.dataTypeEnum.string },
         ],
             patentTableInfo = {
                 id: "patentData",
@@ -171,7 +171,7 @@
                 }
                 if (table.tableInfo.id == "ipcData") {
                     for (var m = 0, lenm = patents[i].IPCs.length; m < lenm; m++) {
-                        if (patents[i].IPCs[m].ipc_class) {
+                        if (patents[i].IPCs[m].ipc_section) {
                             tableData.push({
                                 "patent_number": patents[i].patent_number,
                                 "ipc_code": patents[i].IPCs[m].ipc_section+
