@@ -180,7 +180,7 @@
                             tableData.push({
                                 "patent_number": patents[i].patent_number,
                                 "ipc_code": ipcCode,
-                                "cluster_by_ipc" : clusterLookup[ipcCode].Cluster ? clusterLookup[ipcCode].Cluster : "Unknown",
+                                "cluster_by_ipc" : clusterLookup[ipcCode] ? clusterLookup[ipcCode].Cluster : "Unknown",
                             });
                         }
                     }
