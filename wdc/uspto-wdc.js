@@ -39,6 +39,8 @@
         ], ipcCols = [
             { id: "patent_number", alias: "patent_number", dataType: tableau.dataTypeEnum.string },
             { id: "ipc_code", alias: "ipc_code", dataType: tableau.dataTypeEnum.string },
+            { id: "cluster_by_ipc", alias: "cluster_by_ipc", dataType: tableau.dataTypeEnum.string },
+            
         ],
             patentTableInfo = {
                 id: "patentData",
@@ -176,6 +178,7 @@
                             tableData.push({
                                 "patent_number": patents[i].patent_number,
                                 "ipc_code": patents[i].IPCs[m].ipc_section+patents[i].IPCs[m].ipc_class+patents[i].IPCs[m].ipc_subclass.toUpperCase(),
+                                "cluster_by_ipc" : clusterLookup[patents[i].IPCs[m].ipc_section+patents[i].IPCs[m].ipc_class+patents[i].IPCs[m].ipc_subclass.toUpperCase()],
                             });
                         }
                     }
