@@ -178,7 +178,7 @@
                             tableData.push({
                                 "patent_number": patents[i].patent_number,
                                 "ipc_code": patents[i].IPCs[m].ipc_section+patents[i].IPCs[m].ipc_class+patents[i].IPCs[m].ipc_subclass.toUpperCase(),
-                                "cluster_by_ipc" : clusterLookup[patents[i].IPCs[m].ipc_section+patents[i].IPCs[m].ipc_class+patents[i].IPCs[m].ipc_subclass.toUpperCase()],
+                                "cluster_by_ipc" : clusterLookup,
                             });
                         }
                     }
