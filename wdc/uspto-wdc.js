@@ -38,7 +38,10 @@
             { id: "cpc_group_title", alias: "cpc_group_title", dataType: tableau.dataTypeEnum.string },
         ], ipcCols = [
             { id: "patent_number", alias: "patent_number", dataType: tableau.dataTypeEnum.string },
-            { id: "ipc_code", alias: "ipc_code", dataType: tableau.dataTypeEnum.string },
+            { id: "ipc_section", alias: "ipc_section", dataType: tableau.dataTypeEnum.string },
+            { id: "ipc_class", alias: "ipc_class", dataType: tableau.dataTypeEnum.string },
+            { id: "ipc_subclass", alias: "ipc_subclass", dataType: tableau.dataTypeEnum.string },
+            { id: "ipc_subgroup", alias: "ipc_subgroup", dataType: tableau.dataTypeEnum.string },
         ],
             patentTableInfo = {
                 id: "patentData",
