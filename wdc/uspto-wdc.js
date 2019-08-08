@@ -175,7 +175,7 @@
                 if (table.tableInfo.id == "ipcData") {
                     var ipc_code;
                     for (var m = 0, lenm = patents[i].IPCs.length; m < lenm; m++) {
-                        ipcCode = patents[i].IPCs[m].ipc_section+patents[i].IPCs[m].ipc_class+patents[i].IPCs[m].ipc_subclass.toUpperCase(),
+                        ipcCode = patents[i].IPCs[m].ipc_section+patents[i].IPCs[m].ipc_class+patents[i].IPCs[m].ipc_subclass.toUpperCase();
                         if (patents[i].IPCs[m].ipc_section) {
                             tableData.push({
                                 "patent_number": patents[i].patent_number,
