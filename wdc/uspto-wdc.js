@@ -175,7 +175,7 @@
                         if (patents[i].IPCs[m].ipc_section) {
                             tableData.push({
                                 "patent_number": patents[i].patent_number,
-                                "ipc_code": patents[i].IPCs[m].ipc_section+patents[i].IPCs[m].ipc_class+patents[i].IPCs[m].ipc_sub_class,
+                                "ipc_code": patents[i].IPCs[m].ipc_section+patents[i].IPCs[m].ipc_class+patents[i].IPCs[m].ipc_subclass,
                             });
                         }
                     }
