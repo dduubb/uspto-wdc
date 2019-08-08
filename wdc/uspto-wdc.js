@@ -6,7 +6,7 @@
             { id: "patent_title", alias: "patent_title", dataType: tableau.dataTypeEnum.string },
             { id: "patent_year", alias: "patent_year", dataType: tableau.dataTypeEnum.string },
             { id: "patent_abstract", alias: "patent_abstract", dataType: tableau.dataTypeEnum.string },            
-            { id: "patent_number", alias: "patent_number", dataType: tableau.dataTypeEnum.string },
+            { id: "patent_number_key", alias: "patent_number", dataType: tableau.dataTypeEnum.string },
         ], inventorCols = [
             { id: "patent_number", alias: "patent_number", dataType: tableau.dataTypeEnum.string },
             { id: "inventor_id", alias: "inventor_id", dataType: tableau.dataTypeEnum.string },
@@ -94,7 +94,7 @@
                 if (table.tableInfo.id == "patentData") {
                     tableData.push({
                         "lastId":patents[i].patent_id,
-                        "patent_number": patents[i].patent_number,
+                        "patent_number_key": patents[i].patent_number,
                         "patent_title": patents[i].patent_title,
                         "patent_year": patents[i].patent_year,
                         "patent_abstract": patents[i].patent_abstract,
