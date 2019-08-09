@@ -22,8 +22,8 @@
             { id: "assignee_first_name", alias: "assignee_first_name", dataType: tableau.dataTypeEnum.string },
             { id: "assignee_last_name", alias: "assignee_last_name", dataType: tableau.dataTypeEnum.string },
             { id: "assignee_organization", alias: "assignee_organization", dataType: tableau.dataTypeEnum.string },
-            { id: "assignee_lastknown_longitude", alias: "assignee_longitude", columnRole: "dimension", dataType: tableau.dataTypeEnum.float },
-            { id: "assignee_lastknown_latitude", alias: "assignee_latitude", columnRole: "dimension", dataType: tableau.dataTypeEnum.float },
+            { id: "assignee_lastknown_longitude", alias: "assignee_lastknown_longitude", columnRole: "dimension", dataType: tableau.dataTypeEnum.float },
+            { id: "assignee_lastknown_latitude", alias: "assignee_lastknown_latitude", columnRole: "dimension", dataType: tableau.dataTypeEnum.float },
             { id: "assignee_lastknown_city", alias: "assignee_lastknown_city", columnRole: "dimension", dataType: tableau.dataTypeEnum.float },
             { id: "assignee_lastknown_state", alias: "assignee_lastknown_state", columnRole: "dimension", dataType: tableau.dataTypeEnum.float },
 
@@ -129,10 +129,10 @@
                                 "assignee_last_name": patents[i].assignees[k].assignee_last_name,
                                 "assignee_id": patents[i].assignees[k].assignee_id,
                                 "assignee_organization": patents[i].assignees[k].assignee_organization,
-                                "assignee_lastknown_latitude": patents[i].assignees[k].assignee_latitude,
-                                "assignee_lastknown_longitude": patents[i].assignees[k].assignee_longitude,
-                                "assignee_lastknown_city": patents[i].assignees[k].assignee_latitude,
-                                "assignee_lastknown_state": patents[i].assignees[k].assignee_longitude,
+                                "assignee_lastknown_latitude": patents[i].assignees[k].assignee_lastknown_latitude,
+                                "assignee_lastknown_longitude": patents[i].assignees[k].assignee_lastknown_longitude,
+                                "assignee_lastknown_city": patents[i].assignees[k].assignee_lastknown_city,
+                                "assignee_lastknown_state": patents[i].assignees[k].assignee_lastknown_state,
                             });
                         }
                     }
