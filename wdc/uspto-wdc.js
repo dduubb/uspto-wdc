@@ -22,8 +22,11 @@
             { id: "assignee_first_name", alias: "assignee_first_name", dataType: tableau.dataTypeEnum.string },
             { id: "assignee_last_name", alias: "assignee_last_name", dataType: tableau.dataTypeEnum.string },
             { id: "assignee_organization", alias: "assignee_organization", dataType: tableau.dataTypeEnum.string },
-            { id: "assignee_longitude", alias: "assignee_longitude", columnRole: "dimension", dataType: tableau.dataTypeEnum.float },
-            { id: "assignee_latitude", alias: "assignee_latitude", columnRole: "dimension", dataType: tableau.dataTypeEnum.float },
+            { id: "assignee_lastknown_longitude", alias: "assignee_longitude", columnRole: "dimension", dataType: tableau.dataTypeEnum.float },
+            { id: "assignee_lastknown_latitude", alias: "assignee_latitude", columnRole: "dimension", dataType: tableau.dataTypeEnum.float },
+            { id: "assignee_lastknown_city", alias: "assignee_lastknown_city", columnRole: "dimension", dataType: tableau.dataTypeEnum.float },
+            { id: "assignee_lastknown_state", alias: "assignee_lastknown_state", columnRole: "dimension", dataType: tableau.dataTypeEnum.float },
+
         ], wipoCols = [
             { id: "patent_number", alias: "patent_number", dataType: tableau.dataTypeEnum.string },
             { id: "wipo_sector_title", alias: "wipo_sector_title", dataType: tableau.dataTypeEnum.string },
@@ -84,7 +87,7 @@
     myConnector.getData = function (table, doneCallback) {
         
         var queryObj = JSON.parse(tableau.connectionData);
-        $.getJSON('http://www.patentsview.org/api/patents/query?q={"' + queryObj.filterKey + '":"' + queryObj.filterValue + '"}&o={"page":' + queryObj.page + ',"per_page":' + queryObj.per_page + '}&f=["patent_abstract", "assignee_id","assignee_latitude","assignee_longitude","assignee_last_name","assignee_first_name","patent_number","patent_title","inventor_id","patent_id","inventor_latitude","inventor_longitude","patent_year","assignee_organization","inventor_city","inventor_last_name","inventor_first_name","wipo_sector_title", "uspc_mainclass_title", "inventor_state", "nber_category_title","inventor_county","cpc_group_title","ipc_section","ipc_class","ipc_subclass"]&s=[{"' + queryObj.sortKey + '":"'+queryObj.sortValue+'"}]', function (resp) {
+        $.getJSON('http://www.patentsview.org/api/patents/query?q={"' + queryObj.filterKey + '":"' + queryObj.filterValue + '"}&o={"page":' + queryObj.page + ',"per_page":' + queryObj.per_page + '}&f=["patent_abstract", "assignee_id","assignee_lastknown_latitude","assignee_lastknown_longitude","assignee_lastknown_city","assignee_lastknown_state","assignee_last_name","assignee_first_name","patent_number","patent_title","inventor_id","patent_id","inventor_latitude","inventor_longitude","patent_year","assignee_organization","inventor_city","inventor_last_name","inventor_first_name","wipo_sector_title", "uspc_mainclass_title", "inventor_state", "nber_category_title","inventor_county","cpc_group_title","ipc_section","ipc_class","ipc_subclass"]&s=[{"' + queryObj.sortKey + '":"'+queryObj.sortValue+'"}]', function (resp) {
 
             var patents = resp.patents,
                 tableData = [];
@@ -126,8 +129,10 @@
                                 "assignee_last_name": patents[i].assignees[k].assignee_last_name,
                                 "assignee_id": patents[i].assignees[k].assignee_id,
                                 "assignee_organization": patents[i].assignees[k].assignee_organization,
-                                "assignee_latitude": patents[i].assignees[k].assignee_latitude,
-                                "assignee_longitude": patents[i].assignees[k].assignee_longitude,
+                                "assignee_lastknown_latitude": patents[i].assignees[k].assignee_latitude,
+                                "assignee_lastknown_longitude": patents[i].assignees[k].assignee_longitude,
+                                "assignee_lastknown_city": patents[i].assignees[k].assignee_latitude,
+                                "assignee_lastknown_state": patents[i].assignees[k].assignee_longitude,
                             });
                         }
                     }
