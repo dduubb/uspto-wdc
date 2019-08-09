@@ -10,12 +10,12 @@
         ], inventorCols = [
             { id: "patent_number", alias: "patent_number", dataType: tableau.dataTypeEnum.string },
             { id: "inventor_id", alias: "inventor_id", dataType: tableau.dataTypeEnum.string },            
-            { id: "inventor_county", alias: "inventor_county", dataType: tableau.dataTypeEnum.string },
-            { id: "inventor_state", alias: "inventor_state", dataType: tableau.dataTypeEnum.string },
+            { id: "inventor_lastknown_county", alias: "inventor_lastknown_county", dataType: tableau.dataTypeEnum.string },
+            { id: "inventor_lastknown_state", alias: "inventor_lastknown_state", dataType: tableau.dataTypeEnum.string },
             { id: "inventor_last_name", alias: "inventor_last_name", dataType: tableau.dataTypeEnum.string },
             { id: "inventor_first_name", alias: "inventor_first_name", dataType: tableau.dataTypeEnum.string },
-            { id: "inventor_longitude", alias: "latitude", columnRole: "dimension", dataType: tableau.dataTypeEnum.float },
-            { id: "inventor_latitude", alias: "longitude", columnRole: "dimension", dataType: tableau.dataTypeEnum.float },
+            { id: "inventor_lastknown_longitude", alias: "inventor_lastknown_longitude", columnRole: "dimension", dataType: tableau.dataTypeEnum.float },
+            { id: "inventor_lastknown_latitude", alias: "inventor_lastknown_latitude", columnRole: "dimension", dataType: tableau.dataTypeEnum.float },
         ], assigneeCols = [
             { id: "patent_number", alias: "patent_number", dataType: tableau.dataTypeEnum.string },
             { id: "assignee_id", alias: "assignee_id", dataType: tableau.dataTypeEnum.string },
@@ -111,12 +111,12 @@
                         tableData.push({
                             "patent_number": patents[i].patent_number,
                             "inventor_id": patents[i].inventors[j].inventor_id,                            
-                            "inventor_county": patents[i].inventors[j].inventor_county,                    
-                            "inventor_state": patents[i].inventors[j].inventor_state,
+                            "inventor_lastknown_county": patents[i].inventors[j].inventor_lastknown_county,                    
+                            "inventor_lastknown_state": patents[i].inventors[j].inventor_lastknown_state,
                             "inventor_last_name": patents[i].inventors[j].inventor_last_name,
                             "inventor_first_name": patents[i].inventors[j].inventor_first_name,
-                            "inventor_latitude": patents[i].inventors[j].inventor_latitude,
-                            "inventor_longitude": patents[i].inventors[j].inventor_longitude,
+                            "inventor_lastknown_latitude": patents[i].inventors[j].inventor_lastknown_latitude,
+                            "inventor_lastknown_longitude": patents[i].inventors[j].inventor_lastknown_longitude,
                         });
                     }
                 }
