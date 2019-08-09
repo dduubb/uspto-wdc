@@ -24,8 +24,8 @@
             { id: "assignee_organization", alias: "assignee_organization", dataType: tableau.dataTypeEnum.string },
             { id: "assignee_lastknown_longitude", alias: "assignee_lastknown_longitude", columnRole: "dimension", dataType: tableau.dataTypeEnum.float },
             { id: "assignee_lastknown_latitude", alias: "assignee_lastknown_latitude", columnRole: "dimension", dataType: tableau.dataTypeEnum.float },
-            { id: "assignee_lastknown_city", alias: "assignee_lastknown_city", columnRole: "dimension", dataType: tableau.dataTypeEnum.float },
-            { id: "assignee_lastknown_state", alias: "assignee_lastknown_state", columnRole: "dimension", dataType: tableau.dataTypeEnum.float },
+            { id: "assignee_lastknown_city", alias: "assignee_lastknown_city", columnRole: "dimension", dataType: tableau.dataTypeEnum.string },
+            { id: "assignee_lastknown_state", alias: "assignee_lastknown_state", columnRole: "dimension", dataType: tableau.dataTypeEnum.string },
 
         ], wipoCols = [
             { id: "patent_number", alias: "patent_number", dataType: tableau.dataTypeEnum.string },
