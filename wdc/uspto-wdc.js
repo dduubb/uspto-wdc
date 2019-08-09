@@ -103,7 +103,7 @@
                         "lastId":patents[i].patent_id,
                         "patent_number": patents[i].patent_number,
                         "patent_title": patents[i].patent_title,                        
-                        "patent_date": patents[i].patent_title,
+                        "patent_date": patents[i].patent_date,
                         "patent_year": patents[i].patent_year,
                         "patent_abstract": patents[i].patent_abstract,
 
