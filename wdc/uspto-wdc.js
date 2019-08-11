@@ -104,7 +104,6 @@
             for (var i = 0, leni = patents.length; i < leni; i++) {
                 if (table.tableInfo.id == "patentData") {
                     tableData.push({
-                        "lastId":patents[i].patent_id,
                         "patent_number": patents[i].patent_number,
                         "patent_id": patents[i].patent_id,
                         "patent_title": patents[i].patent_title,                        
@@ -112,8 +111,6 @@
                         "patent_year": patents[i].patent_year,
                         "patent_type": patents[i].patent_type,
                         "patent_abstract": patents[i].patent_abstract,
-
-
                     });
                 }
                 if (table.tableInfo.id == "inventorData") {
