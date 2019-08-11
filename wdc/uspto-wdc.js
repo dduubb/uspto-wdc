@@ -118,7 +118,8 @@
                         tableData.push({
                             "patent_number": patents[i].patent_number,
                             "inventor_id": patents[i].inventors[j].inventor_id,                            
-                            "inventor_county": patents[i].inventors[j].inventor_county,                                                       
+                            "inventor_county": patents[i].inventors[j].inventor_county,                      
+                            "inventor_state": patents[i].inventors[j].inventor_state,                                                       
                             "inventor_county_fips": patents[i].inventors[j].inventor_county_fips,   
                             "inventor_lastknown_city": patents[i].inventors[j].inventor_lastknown_city,                    
                             "inventor_lastknown_state": patents[i].inventors[j].inventor_lastknown_state,
