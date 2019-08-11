@@ -6,7 +6,7 @@
             { id: "patent_number", alias: "patent_number", dataType: tableau.dataTypeEnum.string },
             { id: "patent_id", alias: "patent_id", dataType: tableau.dataTypeEnum.string },
             { id: "patent_title", alias: "patent_title", dataType: tableau.dataTypeEnum.string },
-            { id: "patent_year", alias: "patent_year", dataType: tableau.dataTypeEnum.string },
+            { id: "patent_year", alias: "patent_year", dataType: tableau.dataTypeEnum.int },
             { id: "patent_abstract", alias: "patent_abstract", dataType: tableau.dataTypeEnum.string },
             { id: "patent_date", alias: "patent_date", dataType: tableau.dataTypeEnum.string },
             { id: "patent_type", alias: "patent_type", dataType: tableau.dataTypeEnum.string },
