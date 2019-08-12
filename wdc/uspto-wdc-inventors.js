@@ -101,8 +101,8 @@
                 if (table.tableInfo.id == "inventorData") {
                      tableData.push({                            
                            "inventor_id": inventors[i].inventor_id,
-                           "inventor_last_name": inventors[j].inventor_last_name,
-                           "inventor_first_name": inventors[j].inventor_first_name,
+                           "inventor_last_name": inventors[i].inventor_last_name,
+                           "inventor_first_name": inventors[i].inventor_first_name,
                          /*"inventor_county": patents[i].inventors[j].inventor_county,                      
                            "inventor_state": patents[i].inventors[j].inventor_state,                                                       
                            "inventor_county_fips": patents[i].inventors[j].inventor_county_fips,   
