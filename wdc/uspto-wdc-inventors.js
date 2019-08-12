@@ -23,7 +23,7 @@
             { id: "inventor_lastknown_country", alias: "inventor_lastknown_country", dataType: tableau.dataTypeEnum.string },
 
             { id: "inventor_lastknown_longitude", alias: "inventor_lastknown_longitude", columnRole: "dimension", dataType: tableau.dataTypeEnum.float },
-            { id: "inventor_lastknown_latitude", alias: "inventor_lastknown_latitude", columnRole: "dimension", dataType: tableau.dataTypeEnum.float },*/
+            { id: "inventor_lastknown_latitude", alias: "inventor_lastknown_latitude", columnRole: "dimension", dataType: tableau.dataTypeEnum.float },
         ], assigneeCols = [
            { id: "inventor_id", alias: "inventor_id", dataType: tableau.dataTypeEnum.string },
              { id: "patent_number", alias: "patent_number", dataType: tableau.dataTypeEnum.string },
