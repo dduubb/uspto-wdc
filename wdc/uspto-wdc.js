@@ -188,9 +188,24 @@
                         }
                     }
                 }
+                //if (table.tableInfo.id == "ipcData") {
+                //    var ipcCode;
+                //    for (var m = 0, lenm = patents[i].IPCs.length; m < lenm; m++) {
+                //        if (patents[i].IPCs[m].ipc_section) {
+                //            ipcCode = patents[i].IPCs[m].ipc_section+patents[i].IPCs[m].ipc_class+patents[i].IPCs[m].ipc_subclass.toUpperCase();
+                //            tableData.push({
+                //                "patent_number": patents[i].patent_number,
+                //                "ipc_code": ipcCode,
+                //                "cluster_by_ipc" : clusterLookup[ipcCode] ? clusterLookup[ipcCode].Cluster : "Unknown",
+                //            });
+                //        }
+                //    }
+                //}
                 if (table.tableInfo.id == "ipcData") {
-                    var ipcCode;
-                    for (var m = 0, lenm = patents[i].IPCs.length; m < lenm; m++) {
+                    var ipcCode,
+                        m = 0;
+                    //for (var m = 0, lenm = patents[i].IPCs.length; m < lenm; m++) {
+                    
                         if (patents[i].IPCs[m].ipc_section) {
                             ipcCode = patents[i].IPCs[m].ipc_section+patents[i].IPCs[m].ipc_class+patents[i].IPCs[m].ipc_subclass.toUpperCase();
                             tableData.push({
@@ -199,7 +214,7 @@
                                 "cluster_by_ipc" : clusterLookup[ipcCode] ? clusterLookup[ipcCode].Cluster : "Unknown",
                             });
                         }
-                    }
+                    //}
                 }
             }
             table.appendRows(tableData);
