@@ -102,8 +102,7 @@
                      tableData.push({                            
                            "inventor_id": inventors[i].inventor_id,
                            "inventor_last_name": inventors[i].inventor_last_name,
-                           "inventor_first_name": inventors[i].inventor_first_name,                                                   
-                           "inventor_county_fips": inventors[i].inventor_county_fips,   
+                           "inventor_first_name": inventors[i].inventor_first_name,    
                            "inventor_lastknown_city": inventors[i].inventor_lastknown_city,                          
                            "inventor_lastknown_county": inventors[i].inventor_lastknown_county,
                            "inventor_lastknown_state": inventors[i].inventor_lastknown_state,
