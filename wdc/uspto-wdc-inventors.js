@@ -98,13 +98,13 @@
                      tableData.push({                            
                            "inventor_id": inventors[i].inventor_id,
                            "inventor_last_name": inventors[i].inventor_last_name,
-                           "inventor_first_name": inventors[i].inventor_first_name,    
+                           /*"inventor_first_name": inventors[i].inventor_first_name,    
                            "inventor_lastknown_city": inventors[i].inventor_lastknown_city,                          
                            "inventor_lastknown_county": inventors[i].inventor_lastknown_county,
                            "inventor_lastknown_state": inventors[i].inventor_lastknown_state,
                            "inventor_lastknown_country": inventors[i].inventor_lastknown_country,
                            "inventor_lastknown_latitude": inventors[i].inventor_lastknown_latitude,
-                           "inventor_lastknown_longitude": inventors[i].inventor_lastknown_longitude,
+                           "inventor_lastknown_longitude": inventors[i].inventor_lastknown_longitude,*/
                         });
                 }
                 if (table.tableInfo.id == "patentData") {
