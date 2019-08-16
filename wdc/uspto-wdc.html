@@ -9,7 +9,6 @@
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" crossorigin="anonymous"></script>
 
  <script src="https://connectors.tableau.com/libs/tableauwdc-2.1.latest.js" type="text/javascript"></script>
- <script src="clusterLookup.js" type="text/javascript"></script>
  <script src="uspto-wdc.js" type="text/javascript"></script>
  <style>
   td,
@@ -30,335 +29,339 @@
   <h2>USPTO Patents Endpoint</h2>
   This connector allows you to load data from the USPTO PatentsView API, Specifically the Patents Endpoint as documented at <a href="http://www.patentsview.org/api/patent.html">http://www.patentsview.org/api/patent.html</a>.
   <br>
-  <div class="container">
-   <div class="row">
-    <table class="col col-sm-3">
-     <td><input type="checkbox" name="application_citations" value="application_citations">application_citations<br>
-      <input type="checkbox" name="applications" value="applications">applications<br>
-      <input type="checkbox" name="assignees" value="assignees" checked>assignees<br>
-      <input type="checkbox" name="cited_patents" value="cited_patents">cited_patents<br>
-      <input type="checkbox" name="citedby_patents" value="citedby_patents">citedby_patents<br>
-      <input type="checkbox" name="cpcs" value="cpcs">cpcs<br>
-      <input type="checkbox" name="patents" value="patents" checked>patents<br>
-      <input type="checkbox" name="examiners" value="examiners">examiners<br>
-      <input type="checkbox" name="foreign_priority" value="foreign_priority">foreign_priority<br>
-      <input type="checkbox" name="gov_interests" value="gov_interests">gov_interests<br>
-      <input type="checkbox" name="inventors" value="inventors" checked>inventors<br>
-      <input type="checkbox" name="ipcs" value="ipcs" checked>ipcs<br>
-      <input type="checkbox" name="lawyers" value="lawyers">lawyers<br>
-      <input type="checkbox" name="nbers" value="nbers">nbers<br>
-      <input type="checkbox" name="pct_data" value="pct_data">pct_data<br>
-      <input type="checkbox" name="rawinventors" value="rawinventors">rawinventors<br>
-      <input type="checkbox" name="uspcs" value="uspcs">uspcs<br>
-      <input type="checkbox" name="wipos" value="wipos">wipos<br>
+
+
+
+  <table>
+   <td class="">
+    <tr class="">
+     <td class="">
+      <label class="control-label" for="per-page">Select Items per Page:</label>
+      <input type="number" class="form-control" id="per-page" value="10" min="1" max="10000">
      </td>
-    </table>
-    <table class="col col-sm-9">
-     <td>
-      <tr class="row">
-       <td class="col-md-6">
-        <label class="control-label" for="per-page">Select Items per Page:</label>
-        <input type="number" class="form-control" id="per-page" value="10" min="1" max="10000">
-       </td>
-       <td class="col-md-6">
-        <label class="control-label" for="page">Select Page:</label>
-        <input type="number" class="form-control" id="page" value="1" min="1">
-       </td>
-      </tr>
-      <tr class="row">
-       <td class="col-md-6"><label class="control-label" for="filter-key">Select Filter Key:</label>
-        <select class="form-control" id="filter-key">
-         <option value='appcit_app_number'>appcit_app_number</option>
-         <option value='appcit_category'>appcit_category</option>
-         <option value='appcit_date'>appcit_date</option>
-         <option value='appcit_kind'>appcit_kind</option>
-         <option value='app_country'>app_country</option>
-         <option value='app_date'>app_date</option>
-         <option value='app_number'>app_number</option>
-         <option value='app_type'>app_type</option>
-         <option value='assignee_city'>assignee_city</option>
-         <option value='assignee_country'>assignee_country</option>
-         <option value='assignee_first_name'>assignee_first_name</option>
-         <option value='assignee_first_seen_date'>assignee_first_seen_date</option>
-         <option value='assignee_id'>assignee_id</option>
-         <option value='assignee_last_name'>assignee_last_name</option>
-         <option value='assignee_last_seen_date'>assignee_last_seen_date</option>
-         <option value='assignee_lastknown_city'>assignee_lastknown_city</option>
-         <option value='assignee_lastknown_country'>assignee_lastknown_country</option>
-         <option value='assignee_lastknown_location_id'>assignee_lastknown_location_id</option>
-         <option value='assignee_lastknown_state'>assignee_lastknown_state</option>
-         <option value='assignee_location_id'>assignee_location_id</option>
-         <option value='assignee_organization'>assignee_organization</option>
-         <option value='assignee_sequence'>assignee_sequence</option>
-         <option value='assignee_state'>assignee_state</option>
-         <option value='assignee_total_num_inventors'>assignee_total_num_inventors</option>
-         <option value='assignee_total_num_patents'>assignee_total_num_patents</option>
-         <option value='assignee_type'>assignee_type</option>
-         <option value='cited_patent_category'>cited_patent_category</option>
-         <option value='cited_patent_date'>cited_patent_date</option>
-         <option value='cited_patent_kind'>cited_patent_kind</option>
-         <option value='cited_patent_number'>cited_patent_number</option>
-         <option value='cited_patent_title'>cited_patent_title</option>
-         <option value='citedby_patent_category'>citedby_patent_category</option>
-         <option value='citedby_patent_date'>citedby_patent_date</option>
-         <option value='citedby_patent_kind'>citedby_patent_kind</option>
-         <option value='citedby_patent_number'>citedby_patent_number</option>
-         <option value='citedby_patent_title'>citedby_patent_title</option>
-         <option value='cpc_category'>cpc_category</option>
-         <option value='cpc_first_seen_date'>cpc_first_seen_date</option>
-         <option value='cpc_group_id'>cpc_group_id</option>
-         <option value='cpc_group_title'>cpc_group_title</option>
-         <option value='cpc_last_seen_date'>cpc_last_seen_date</option>
-         <option value='cpc_section_id'>cpc_section_id</option>
-         <option value='cpc_sequence'>cpc_sequence</option>
-         <option value='cpc_subgroup_id'>cpc_subgroup_id</option>
-         <option value='cpc_subgroup_title'>cpc_subgroup_title</option>
-         <option value='cpc_subsection_id'>cpc_subsection_id</option>
-         <option value='cpc_subsection_title'>cpc_subsection_title</option>
-         <option value='cpc_total_num_assignees'>cpc_total_num_assignees</option>
-         <option value='cpc_total_num_inventors'>cpc_total_num_inventors</option>
-         <option value='cpc_total_num_patents'>cpc_total_num_patents</option>
-         <option value='govint_contract_award_number'>govint_contract_award_number</option>
-         <option value='govint_org_id'>govint_org_id</option>
-         <option value='govint_org_level_one'>govint_org_level_one</option>
-         <option value='govint_org_level_two'>govint_org_level_two</option>
-         <option value='govint_org_level_three'>govint_org_level_three</option>
-         <option value='govint_org_name'>govint_org_name</option>
-         <option value='govint_raw_statement'>govint_raw_statement</option>
-         <option value='inventor_city'>inventor_city</option>
-         <option value='inventor_country'>inventor_country</option>
-         <option value='inventor_first_name'>inventor_first_name</option>
-         <option value='inventor_first_seen_date'>inventor_first_seen_date</option>
-         <option value='inventor_id'>inventor_id</option>
-         <option value='inventor_last_name'>inventor_last_name</option>
-         <option value='inventor_last_seen_date'>inventor_last_seen_date</option>
-         <option selected value='inventor_lastknown_city'>inventor_lastknown_city</option>
-         <option value='inventor_lastknown_country'>inventor_lastknown_country</option>
-         <option value='inventor_lastknown_location_id'>inventor_lastknown_location_id</option>
-         <option value='inventor_lastknown_state'>inventor_lastknown_state</option>
-         <option value='inventor_location_id'>inventor_location_id</option>
-         <option value='inventor_sequence'>inventor_sequence</option>
-         <option value='inventor_state'>inventor_state</option>
-         <option value='inventor_total_num_patents'>inventor_total_num_patents</option>
-         <option value='ipc_class'>ipc_class</option>
-         <option value='ipc_classification_value'>ipc_classification_value</option>
-         <option value='ipc_first_seen_date'>ipc_first_seen_date</option>
-         <option value='ipc_last_seen_date'>ipc_last_seen_date</option>
-         <option value='ipc_main_group'>ipc_main_group</option>
-         <option value='ipc_section'>ipc_section</option>
-         <option value='ipc_sequence'>ipc_sequence</option>
-         <option value='ipc_subclass'>ipc_subclass</option>
-         <option value='ipc_subgroup'>ipc_subgroup</option>
-         <option value='ipc_symbol_position'>ipc_symbol_position</option>
-         <option value='ipc_total_num_assignees'>ipc_total_num_assignees</option>
-         <option value='ipc_total_num_inventors'>ipc_total_num_inventors</option>
-         <option value='nber_category_id'>nber_category_id</option>
-         <option value='nber_category_title'>nber_category_title</option>
-         <option value='nber_first_seen_date'>nber_first_seen_date</option>
-         <option value='nber_last_seen_date'>nber_last_seen_date</option>
-         <option value='nber_subcategory_id'>nber_subcategory_id</option>
-         <option value='nber_subcategory_title'>nber_subcategory_title</option>
-         <option value='nber_total_num_assignees'>nber_total_num_assignees</option>
-         <option value='nber_total_num_inventors'>nber_total_num_inventors</option>
-         <option value='nber_total_num_patents'>nber_total_num_patents</option>
-         <option value='patent_abstract'>patent_abstract</option>
-         <option value='patent_average_processing_time'>patent_average_processing_time</option>
-         <option value='patent_date'>patent_date</option>
-         <option value='patent_firstnamed_assignee_city'>patent_firstnamed_assignee_city</option>
-         <option value='patent_firstnamed_assignee_country'>patent_firstnamed_assignee_country</option>
-         <option value='patent_firstnamed_assignee_id'>patent_firstnamed_assignee_id</option>
-         <option value='patent_firstnamed_assignee_location_id'>patent_firstnamed_assignee_location_id</option>
-         <option value='patent_firstnamed_assignee_state'>patent_firstnamed_assignee_state</option>
-         <option value='patent_firstnamed_inventor_city'>patent_firstnamed_inventor_city</option>
-         <option value='patent_firstnamed_inventor_country'>patent_firstnamed_inventor_country</option>
-         <option value='patent_firstnamed_inventor_id'>patent_firstnamed_inventor_id</option>
-         <option value='patent_firstnamed_inventor_location_id'>patent_firstnamed_inventor_location_id</option>
-         <option value='patent_firstnamed_inventor_state'>patent_firstnamed_inventor_state</option>
-         <option value='patent_kind'>patent_kind</option>
-         <option value='patent_num_cited_by_us_patents'>patent_num_cited_by_us_patents</option>
-         <option value='patent_num_combined_citations'>patent_num_combined_citations</option>
-         <option value='patent_num_foreign_citations'>patent_num_foreign_citations</option>
-         <option value='patent_num_us_application_citations'>patent_num_us_application_citations</option>
-         <option value='patent_num_us_patent_citations'>patent_num_us_patent_citations</option>
-         <option value='patent_number'>patent_number</option>
-         <option value='patent_processing_time'>patent_processing_time</option>
-         <option value='patent_title'>patent_title</option>
-         <option value='patent_type'>patent_type</option>
-         <option value='patent_year'>patent_year</option>
-         <option value='rawinventor_first_name'>rawinventor_first_name</option>
-         <option value='rawinventor_last_name'>rawinventor_last_name</option>
-         <option value='uspc_first_seen_date'>uspc_first_seen_date</option>
-         <option value='uspc_last_seen_date'>uspc_last_seen_date</option>
-         <option value='uspc_mainclass_id'>uspc_mainclass_id</option>
-         <option value='uspc_mainclass_title'>uspc_mainclass_title</option>
-         <option value='uspc_sequence'>uspc_sequence</option>
-         <option value='uspc_subclass_id'>uspc_subclass_id</option>
-         <option value='uspc_subclass_title'>uspc_subclass_title</option>
-         <option value='uspc_total_num_assignees'>uspc_total_num_assignees</option>
-         <option value='uspc_total_num_inventors'>uspc_total_num_inventors</option>
-         <option value='uspc_total_num_patents'>uspc_total_num_patents</option>
-         <option value='wipo_field_id'>wipo_field_id</option>
-         <option value='wipo_field_title'>wipo_field_title</option>
-         <option value='wipo_sector_title'>wipo_sector_title</option>
-         <option value='wipo_sequence'>wipo_sequence</option>
-        </select>
-       </td>
-       <td class="col-md-6">
-        <label class="control-label" for="filter-value">Select Value:</label>
-        <input type="text" class="form-control" id="filter-value" value="Kansas City">
-       </td>
-      </tr>
-      <tr class="row">
-       <td class="col-md-6">
-        <label class="control-label" for="sort-key">Select Sort Key:</label>
-        <select class="form-control" id="sort-key">
-         <option value='appcit_app_number'>appcit_app_number</option>
-         <option value='appcit_category'>appcit_category</option>
-         <option value='appcit_date'>appcit_date</option>
-         <option value='appcit_kind'>appcit_kind</option>
-         <option value='app_country'>app_country</option>
-         <option value='app_date'>app_date</option>
-         <option value='app_number'>app_number</option>
-         <option value='app_type'>app_type</option>
-         <option value='assignee_city'>assignee_city</option>
-         <option value='assignee_country'>assignee_country</option>
-         <option value='assignee_first_name'>assignee_first_name</option>
-         <option value='assignee_first_seen_date'>assignee_first_seen_date</option>
-         <option value='assignee_id'>assignee_id</option>
-         <option value='assignee_last_name'>assignee_last_name</option>
-         <option value='assignee_last_seen_date'>assignee_last_seen_date</option>
-         <option value='assignee_lastknown_city'>assignee_lastknown_city</option>
-         <option value='assignee_lastknown_country'>assignee_lastknown_country</option>
-         <option value='assignee_lastknown_location_id'>assignee_lastknown_location_id</option>
-         <option value='assignee_lastknown_state'>assignee_lastknown_state</option>
-         <option value='assignee_location_id'>assignee_location_id</option>
-         <option value='assignee_organization'>assignee_organization</option>
-         <option value='assignee_sequence'>assignee_sequence</option>
-         <option value='assignee_state'>assignee_state</option>
-         <option value='assignee_total_num_inventors'>assignee_total_num_inventors</option>
-         <option value='assignee_total_num_patents'>assignee_total_num_patents</option>
-         <option value='assignee_type'>assignee_type</option>
-         <option value='cited_patent_category'>cited_patent_category</option>
-         <option value='cited_patent_date'>cited_patent_date</option>
-         <option value='cited_patent_kind'>cited_patent_kind</option>
-         <option value='cited_patent_number'>cited_patent_number</option>
-         <option value='cited_patent_title'>cited_patent_title</option>
-         <option value='citedby_patent_category'>citedby_patent_category</option>
-         <option value='citedby_patent_date'>citedby_patent_date</option>
-         <option value='citedby_patent_kind'>citedby_patent_kind</option>
-         <option value='citedby_patent_number'>citedby_patent_number</option>
-         <option value='citedby_patent_title'>citedby_patent_title</option>
-         <option value='cpc_category'>cpc_category</option>
-         <option value='cpc_first_seen_date'>cpc_first_seen_date</option>
-         <option value='cpc_group_id'>cpc_group_id</option>
-         <option value='cpc_group_title'>cpc_group_title</option>
-         <option value='cpc_last_seen_date'>cpc_last_seen_date</option>
-         <option value='cpc_section_id'>cpc_section_id</option>
-         <option value='cpc_sequence'>cpc_sequence</option>
-         <option value='cpc_subgroup_id'>cpc_subgroup_id</option>
-         <option value='cpc_subgroup_title'>cpc_subgroup_title</option>
-         <option value='cpc_subsection_id'>cpc_subsection_id</option>
-         <option value='cpc_subsection_title'>cpc_subsection_title</option>
-         <option value='cpc_total_num_assignees'>cpc_total_num_assignees</option>
-         <option value='cpc_total_num_inventors'>cpc_total_num_inventors</option>
-         <option value='cpc_total_num_patents'>cpc_total_num_patents</option>
-         <option value='govint_contract_award_number'>govint_contract_award_number</option>
-         <option value='govint_org_id'>govint_org_id</option>
-         <option value='govint_org_level_one'>govint_org_level_one</option>
-         <option value='govint_org_level_two'>govint_org_level_two</option>
-         <option value='govint_org_level_three'>govint_org_level_three</option>
-         <option value='govint_org_name'>govint_org_name</option>
-         <option value='govint_raw_statement'>govint_raw_statement</option>
-         <option value='inventor_city'>inventor_city</option>
-         <option value='inventor_country'>inventor_country</option>
-         <option value='inventor_first_name'>inventor_first_name</option>
-         <option value='inventor_first_seen_date'>inventor_first_seen_date</option>
-         <option value='inventor_id'>inventor_id</option>
-         <option value='inventor_last_name'>inventor_last_name</option>
-         <option value='inventor_last_seen_date'>inventor_last_seen_date</option>
-         <option value='inventor_lastknown_city'>inventor_lastknown_city</option>
-         <option value='inventor_lastknown_country'>inventor_lastknown_country</option>
-         <option value='inventor_lastknown_location_id'>inventor_lastknown_location_id</option>
-         <option value='inventor_lastknown_state'>inventor_lastknown_state</option>
-         <option value='inventor_location_id'>inventor_location_id</option>
-         <option value='inventor_sequence'>inventor_sequence</option>
-         <option value='inventor_state'>inventor_state</option>
-         <option value='inventor_total_num_patents'>inventor_total_num_patents</option>
-         <option value='ipc_class'>ipc_class</option>
-         <option value='ipc_classification_value'>ipc_classification_value</option>
-         <option value='ipc_first_seen_date'>ipc_first_seen_date</option>
-         <option value='ipc_last_seen_date'>ipc_last_seen_date</option>
-         <option value='ipc_main_group'>ipc_main_group</option>
-         <option value='ipc_section'>ipc_section</option>
-         <option value='ipc_sequence'>ipc_sequence</option>
-         <option value='ipc_subclass'>ipc_subclass</option>
-         <option value='ipc_subgroup'>ipc_subgroup</option>
-         <option value='ipc_symbol_position'>ipc_symbol_position</option>
-         <option value='ipc_total_num_assignees'>ipc_total_num_assignees</option>
-         <option value='ipc_total_num_inventors'>ipc_total_num_inventors</option>
-         <option value='nber_category_id'>nber_category_id</option>
-         <option value='nber_category_title'>nber_category_title</option>
-         <option value='nber_first_seen_date'>nber_first_seen_date</option>
-         <option value='nber_last_seen_date'>nber_last_seen_date</option>
-         <option value='nber_subcategory_id'>nber_subcategory_id</option>
-         <option value='nber_subcategory_title'>nber_subcategory_title</option>
-         <option value='nber_total_num_assignees'>nber_total_num_assignees</option>
-         <option value='nber_total_num_inventors'>nber_total_num_inventors</option>
-         <option value='nber_total_num_patents'>nber_total_num_patents</option>
-         <option value='patent_abstract'>patent_abstract</option>
-         <option value='patent_average_processing_time'>patent_average_processing_time</option>
-         <option selected value='patent_date'>patent_date</option>
-         <option value='patent_firstnamed_assignee_city'>patent_firstnamed_assignee_city</option>
-         <option value='patent_firstnamed_assignee_country'>patent_firstnamed_assignee_country</option>
-         <option value='patent_firstnamed_assignee_id'>patent_firstnamed_assignee_id</option>
-         <option value='patent_firstnamed_assignee_location_id'>patent_firstnamed_assignee_location_id</option>
-         <option value='patent_firstnamed_assignee_state'>patent_firstnamed_assignee_state</option>
-         <option value='patent_firstnamed_inventor_city'>patent_firstnamed_inventor_city</option>
-         <option value='patent_firstnamed_inventor_country'>patent_firstnamed_inventor_country</option>
-         <option value='patent_firstnamed_inventor_id'>patent_firstnamed_inventor_id</option>
-         <option value='patent_firstnamed_inventor_location_id'>patent_firstnamed_inventor_location_id</option>
-         <option value='patent_firstnamed_inventor_state'>patent_firstnamed_inventor_state</option>
-         <option value='patent_kind'>patent_kind</option>
-         <option value='patent_num_cited_by_us_patents'>patent_num_cited_by_us_patents</option>
-         <option value='patent_num_combined_citations'>patent_num_combined_citations</option>
-         <option value='patent_num_foreign_citations'>patent_num_foreign_citations</option>
-         <option value='patent_num_us_application_citations'>patent_num_us_application_citations</option>
-         <option value='patent_num_us_patent_citations'>patent_num_us_patent_citations</option>
-         <option value='patent_number'>patent_number</option>
-         <option value='patent_processing_time'>patent_processing_time</option>
-         <option value='patent_title'>patent_title</option>
-         <option value='patent_type'>patent_type</option>
-         <option value='patent_year'>patent_year</option>
-         <option value='rawinventor_first_name'>rawinventor_first_name</option>
-         <option value='rawinventor_last_name'>rawinventor_last_name</option>
-         <option value='uspc_first_seen_date'>uspc_first_seen_date</option>
-         <option value='uspc_last_seen_date'>uspc_last_seen_date</option>
-         <option value='uspc_mainclass_id'>uspc_mainclass_id</option>
-         <option value='uspc_mainclass_title'>uspc_mainclass_title</option>
-         <option value='uspc_sequence'>uspc_sequence</option>
-         <option value='uspc_subclass_id'>uspc_subclass_id</option>
-         <option value='uspc_subclass_title'>uspc_subclass_title</option>
-         <option value='uspc_total_num_assignees'>uspc_total_num_assignees</option>
-         <option value='uspc_total_num_inventors'>uspc_total_num_inventors</option>
-         <option value='uspc_total_num_patents'>uspc_total_num_patents</option>
-         <option value='wipo_field_id'>wipo_field_id</option>
-         <option value='wipo_field_title'>wipo_field_title</option>
-         <option value='wipo_sector_title'>wipo_sector_title</option>
-         <option value='wipo_sequence'>wipo_sequence</option>
-        </select>
-       </td>
-       <td class="col-md-6">
-        <label class="control-label" for="sort-value">Select Sort Value:</label>
-        <select class="form-control" id="sort-value">
-         <option value="asc">Assending</option>
-         <option value="desc">Desending</option>
-        </select>
-       </td>
-      </tr>
+     <td class="">
+      <label class="control-label" for="page">Select Page:</label>
+      <input type="number" class="form-control" id="page" value="1" min="1">
      </td>
-    </table>
-   </div>
-  </div>
+    </tr>
+    <tr class="">
+     <td class=""><label class="control-label" for="filter-key">Select Filter Key:</label>
+      <select class="form-control" id="filter-key">
+       <option value='appcit_app_number'>appcit_app_number</option>
+       <option value='appcit_category'>appcit_category</option>
+       <option value='appcit_date'>appcit_date</option>
+       <option value='appcit_kind'>appcit_kind</option>
+
+       <option disabled>──────────</option>
+       <option value='app_country'>app_country</option>
+       <option value='app_date'>app_date</option>
+       <option value='app_number'>app_number</option>
+       <option value='app_type'>app_type</option>
+
+       <option disabled>──────────</option>
+       <option value='assignee_city'>assignee_city</option>
+       <option value='assignee_country'>assignee_country</option>
+       <option value='assignee_first_name'>assignee_first_name</option>
+       <option value='assignee_first_seen_date'>assignee_first_seen_date</option>
+       <option value='assignee_id'>assignee_id</option>
+       <option value='assignee_last_name'>assignee_last_name</option>
+       <option value='assignee_last_seen_date'>assignee_last_seen_date</option>
+       <option value='assignee_lastknown_city'>assignee_lastknown_city</option>
+       <option value='assignee_lastknown_country'>assignee_lastknown_country</option>
+       <option value='assignee_lastknown_location_id'>assignee_lastknown_location_id</option>
+       <option value='assignee_lastknown_state'>assignee_lastknown_state</option>
+       <option value='assignee_location_id'>assignee_location_id</option>
+       <option value='assignee_organization'>assignee_organization</option>
+       <option value='assignee_sequence'>assignee_sequence</option>
+       <option value='assignee_state'>assignee_state</option>
+       <option value='assignee_total_num_inventors'>assignee_total_num_inventors</option>
+       <option value='assignee_total_num_patents'>assignee_total_num_patents</option>
+       <option value='assignee_type'>assignee_type</option>
+
+       <option disabled>──────────</option>
+       <option value='cited_patent_category'>cited_patent_category</option>
+       <option value='cited_patent_date'>cited_patent_date</option>
+       <option value='cited_patent_kind'>cited_patent_kind</option>
+       <option value='cited_patent_number'>cited_patent_number</option>
+       <option value='cited_patent_title'>cited_patent_title</option>
+       <option value='citedby_patent_category'>citedby_patent_category</option>
+       <option value='citedby_patent_date'>citedby_patent_date</option>
+       <option value='citedby_patent_kind'>citedby_patent_kind</option>
+       <option value='citedby_patent_number'>citedby_patent_number</option>
+       <option value='citedby_patent_title'>citedby_patent_title</option>
+
+       <option disabled>──────────</option>
+       <option value='cpc_category'>cpc_category</option>
+       <option value='cpc_first_seen_date'>cpc_first_seen_date</option>
+       <option value='cpc_group_id'>cpc_group_id</option>
+       <option value='cpc_group_title'>cpc_group_title</option>
+       <option value='cpc_last_seen_date'>cpc_last_seen_date</option>
+       <option value='cpc_section_id'>cpc_section_id</option>
+       <option value='cpc_sequence'>cpc_sequence</option>
+       <option value='cpc_subgroup_id'>cpc_subgroup_id</option>
+       <option value='cpc_subgroup_title'>cpc_subgroup_title</option>
+       <option value='cpc_subsection_id'>cpc_subsection_id</option>
+       <option value='cpc_subsection_title'>cpc_subsection_title</option>
+       <option value='cpc_total_num_assignees'>cpc_total_num_assignees</option>
+       <option value='cpc_total_num_inventors'>cpc_total_num_inventors</option>
+       <option value='cpc_total_num_patents'>cpc_total_num_patents</option>
+
+       <option disabled>──────────</option>
+       <option value='govint_contract_award_number'>govint_contract_award_number</option>
+       <option value='govint_org_id'>govint_org_id</option>
+       <option value='govint_org_level_one'>govint_org_level_one</option>
+       <option value='govint_org_level_two'>govint_org_level_two</option>
+       <option value='govint_org_level_three'>govint_org_level_three</option>
+       <option value='govint_org_name'>govint_org_name</option>
+       <option value='govint_raw_statement'>govint_raw_statement</option>
+
+       <option disabled>──────────</option>
+       <option value='inventor_city'>inventor_city</option>
+       <option value='inventor_country'>inventor_country</option>
+       <option value='inventor_first_name'>inventor_first_name</option>
+       <option value='inventor_first_seen_date'>inventor_first_seen_date</option>
+       <option value='inventor_id'>inventor_id</option>
+       <option value='inventor_last_name'>inventor_last_name</option>
+       <option value='inventor_last_seen_date'>inventor_last_seen_date</option>
+       <option value='inventor_lastknown_city'>inventor_lastknown_city</option>
+       <option value='inventor_lastknown_country'>inventor_lastknown_country</option>
+       <option value='inventor_lastknown_location_id'>inventor_lastknown_location_id</option>
+       <option selected value='inventor_lastknown_state'>inventor_lastknown_state</option>
+       <option value='inventor_location_id'>inventor_location_id</option>
+       <option value='inventor_sequence'>inventor_sequence</option>
+       <option value='inventor_state'>inventor_state</option>
+       <option value='inventor_total_num_patents'>inventor_total_num_patents</option>
+
+       <option disabled>──────────</option>
+       <option value='ipc_class'>ipc_class</option>
+       <option value='ipc_classification_value'>ipc_classification_value</option>
+       <option value='ipc_first_seen_date'>ipc_first_seen_date</option>
+       <option value='ipc_last_seen_date'>ipc_last_seen_date</option>
+       <option value='ipc_main_group'>ipc_main_group</option>
+       <option value='ipc_section'>ipc_section</option>
+       <option value='ipc_sequence'>ipc_sequence</option>
+       <option value='ipc_subclass'>ipc_subclass</option>
+       <option value='ipc_subgroup'>ipc_subgroup</option>
+       <option value='ipc_symbol_position'>ipc_symbol_position</option>
+       <option value='ipc_total_num_assignees'>ipc_total_num_assignees</option>
+       <option value='ipc_total_num_inventors'>ipc_total_num_inventors</option>
+
+       <option disabled>──────────</option>
+       <option value='nber_category_id'>nber_category_id</option>
+       <option value='nber_category_title'>nber_category_title</option>
+       <option value='nber_first_seen_date'>nber_first_seen_date</option>
+       <option value='nber_last_seen_date'>nber_last_seen_date</option>
+       <option value='nber_subcategory_id'>nber_subcategory_id</option>
+       <option value='nber_subcategory_title'>nber_subcategory_title</option>
+       <option value='nber_total_num_assignees'>nber_total_num_assignees</option>
+       <option value='nber_total_num_inventors'>nber_total_num_inventors</option>
+       <option value='nber_total_num_patents'>nber_total_num_patents</option>
+
+       <option disabled>──────────</option>
+       <option value='patent_abstract'>patent_abstract</option>
+       <option value='patent_average_processing_time'>patent_average_processing_time</option>
+       <option value='patent_date'>patent_date</option>
+       <option value='patent_firstnamed_assignee_city'>patent_firstnamed_assignee_city</option>
+       <option value='patent_firstnamed_assignee_country'>patent_firstnamed_assignee_country</option>
+       <option value='patent_firstnamed_assignee_id'>patent_firstnamed_assignee_id</option>
+       <option value='patent_firstnamed_assignee_location_id'>patent_firstnamed_assignee_location_id</option>
+       <option value='patent_firstnamed_assignee_state'>patent_firstnamed_assignee_state</option>
+       <option value='patent_firstnamed_inventor_city'>patent_firstnamed_inventor_city</option>
+       <option value='patent_firstnamed_inventor_country'>patent_firstnamed_inventor_country</option>
+       <option value='patent_firstnamed_inventor_id'>patent_firstnamed_inventor_id</option>
+       <option value='patent_firstnamed_inventor_location_id'>patent_firstnamed_inventor_location_id</option>
+       <option value='patent_firstnamed_inventor_state'>patent_firstnamed_inventor_state</option>
+       <option value='patent_kind'>patent_kind</option>
+       <option value='patent_num_cited_by_us_patents'>patent_num_cited_by_us_patents</option>
+       <option value='patent_num_combined_citations'>patent_num_combined_citations</option>
+       <option value='patent_num_foreign_citations'>patent_num_foreign_citations</option>
+       <option value='patent_num_us_application_citations'>patent_num_us_application_citations</option>
+       <option value='patent_num_us_patent_citations'>patent_num_us_patent_citations</option>
+       <option value='patent_number'>patent_number</option>
+       <option value='patent_processing_time'>patent_processing_time</option>
+       <option value='patent_title'>patent_title</option>
+       <option value='patent_type'>patent_type</option>
+       <option value='patent_year'>patent_year</option>
+
+       <option disabled>──────────</option>
+       <option value='rawinventor_first_name'>rawinventor_first_name</option>
+       <option value='rawinventor_last_name'>rawinventor_last_name</option>
+
+       <option disabled>──────────</option>
+       <option value='uspc_first_seen_date'>uspc_first_seen_date</option>
+       <option value='uspc_last_seen_date'>uspc_last_seen_date</option>
+       <option value='uspc_mainclass_id'>uspc_mainclass_id</option>
+       <option value='uspc_mainclass_title'>uspc_mainclass_title</option>
+       <option value='uspc_sequence'>uspc_sequence</option>
+       <option value='uspc_subclass_id'>uspc_subclass_id</option>
+       <option value='uspc_subclass_title'>uspc_subclass_title</option>
+       <option value='uspc_total_num_assignees'>uspc_total_num_assignees</option>
+       <option value='uspc_total_num_inventors'>uspc_total_num_inventors</option>
+       <option value='uspc_total_num_patents'>uspc_total_num_patents</option>
+
+       <option disabled>──────────</option>
+       <option value='wipo_field_id'>wipo_field_id</option>
+       <option value='wipo_field_title'>wipo_field_title</option>
+       <option value='wipo_sector_title'>wipo_sector_title</option>
+       <option value='wipo_sequence'>wipo_sequence</option>
+      </select>
+     </td>
+     <td class="">
+      <label class="control-label" for="filter-value">Select Value:</label>
+      <input type="text" class="form-control" id="filter-value" value="KS">
+     </td>
+    </tr>
+    <tr class="">
+     <td class="">
+      <label class="control-label" for="sort-key">Select Sort Key:</label>
+      <select class="form-control" id="sort-key">
+       <option value='appcit_app_number'>appcit_app_number</option>
+       <option value='appcit_category'>appcit_category</option>
+       <option value='appcit_date'>appcit_date</option>
+       <option value='appcit_kind'>appcit_kind</option>
+       <option value='app_country'>app_country</option>
+       <option value='app_date'>app_date</option>
+       <option value='app_number'>app_number</option>
+       <option value='app_type'>app_type</option>
+       <option value='assignee_city'>assignee_city</option>
+       <option value='assignee_country'>assignee_country</option>
+       <option value='assignee_first_name'>assignee_first_name</option>
+       <option value='assignee_first_seen_date'>assignee_first_seen_date</option>
+       <option value='assignee_id'>assignee_id</option>
+       <option value='assignee_last_name'>assignee_last_name</option>
+       <option value='assignee_last_seen_date'>assignee_last_seen_date</option>
+       <option value='assignee_lastknown_city'>assignee_lastknown_city</option>
+       <option value='assignee_lastknown_country'>assignee_lastknown_country</option>
+       <option value='assignee_lastknown_location_id'>assignee_lastknown_location_id</option>
+       <option value='assignee_lastknown_state'>assignee_lastknown_state</option>
+       <option value='assignee_location_id'>assignee_location_id</option>
+       <option value='assignee_organization'>assignee_organization</option>
+       <option value='assignee_sequence'>assignee_sequence</option>
+       <option value='assignee_state'>assignee_state</option>
+       <option value='assignee_total_num_inventors'>assignee_total_num_inventors</option>
+       <option value='assignee_total_num_patents'>assignee_total_num_patents</option>
+       <option value='assignee_type'>assignee_type</option>
+       <option value='cited_patent_category'>cited_patent_category</option>
+       <option value='cited_patent_date'>cited_patent_date</option>
+       <option value='cited_patent_kind'>cited_patent_kind</option>
+       <option value='cited_patent_number'>cited_patent_number</option>
+       <option value='cited_patent_title'>cited_patent_title</option>
+       <option value='citedby_patent_category'>citedby_patent_category</option>
+       <option value='citedby_patent_date'>citedby_patent_date</option>
+       <option value='citedby_patent_kind'>citedby_patent_kind</option>
+       <option value='citedby_patent_number'>citedby_patent_number</option>
+       <option value='citedby_patent_title'>citedby_patent_title</option>
+       <option value='cpc_category'>cpc_category</option>
+       <option value='cpc_first_seen_date'>cpc_first_seen_date</option>
+       <option value='cpc_group_id'>cpc_group_id</option>
+       <option value='cpc_group_title'>cpc_group_title</option>
+       <option value='cpc_last_seen_date'>cpc_last_seen_date</option>
+       <option value='cpc_section_id'>cpc_section_id</option>
+       <option value='cpc_sequence'>cpc_sequence</option>
+       <option value='cpc_subgroup_id'>cpc_subgroup_id</option>
+       <option value='cpc_subgroup_title'>cpc_subgroup_title</option>
+       <option value='cpc_subsection_id'>cpc_subsection_id</option>
+       <option value='cpc_subsection_title'>cpc_subsection_title</option>
+       <option value='cpc_total_num_assignees'>cpc_total_num_assignees</option>
+       <option value='cpc_total_num_inventors'>cpc_total_num_inventors</option>
+       <option value='cpc_total_num_patents'>cpc_total_num_patents</option>
+       <option value='govint_contract_award_number'>govint_contract_award_number</option>
+       <option value='govint_org_id'>govint_org_id</option>
+       <option value='govint_org_level_one'>govint_org_level_one</option>
+       <option value='govint_org_level_two'>govint_org_level_two</option>
+       <option value='govint_org_level_three'>govint_org_level_three</option>
+       <option value='govint_org_name'>govint_org_name</option>
+       <option value='govint_raw_statement'>govint_raw_statement</option>
+       <option value='inventor_city'>inventor_city</option>
+       <option value='inventor_country'>inventor_country</option>
+       <option value='inventor_first_name'>inventor_first_name</option>
+       <option value='inventor_first_seen_date'>inventor_first_seen_date</option>
+       <option value='inventor_id'>inventor_id</option>
+       <option value='inventor_last_name'>inventor_last_name</option>
+       <option value='inventor_last_seen_date'>inventor_last_seen_date</option>
+       <option value='inventor_lastknown_city'>inventor_lastknown_city</option>
+       <option value='inventor_lastknown_country'>inventor_lastknown_country</option>
+       <option value='inventor_lastknown_location_id'>inventor_lastknown_location_id</option>
+       <option value='inventor_lastknown_state'>inventor_lastknown_state</option>
+       <option value='inventor_location_id'>inventor_location_id</option>
+       <option value='inventor_sequence'>inventor_sequence</option>
+       <option value='inventor_state'>inventor_state</option>
+       <option value='inventor_total_num_patents'>inventor_total_num_patents</option>
+       <option value='ipc_class'>ipc_class</option>
+       <option value='ipc_classification_value'>ipc_classification_value</option>
+       <option value='ipc_first_seen_date'>ipc_first_seen_date</option>
+       <option value='ipc_last_seen_date'>ipc_last_seen_date</option>
+       <option value='ipc_main_group'>ipc_main_group</option>
+       <option value='ipc_section'>ipc_section</option>
+       <option value='ipc_sequence'>ipc_sequence</option>
+       <option value='ipc_subclass'>ipc_subclass</option>
+       <option value='ipc_subgroup'>ipc_subgroup</option>
+       <option value='ipc_symbol_position'>ipc_symbol_position</option>
+       <option value='ipc_total_num_assignees'>ipc_total_num_assignees</option>
+       <option value='ipc_total_num_inventors'>ipc_total_num_inventors</option>
+       <option value='nber_category_id'>nber_category_id</option>
+       <option value='nber_category_title'>nber_category_title</option>
+       <option value='nber_first_seen_date'>nber_first_seen_date</option>
+       <option value='nber_last_seen_date'>nber_last_seen_date</option>
+       <option value='nber_subcategory_id'>nber_subcategory_id</option>
+       <option value='nber_subcategory_title'>nber_subcategory_title</option>
+       <option value='nber_total_num_assignees'>nber_total_num_assignees</option>
+       <option value='nber_total_num_inventors'>nber_total_num_inventors</option>
+       <option value='nber_total_num_patents'>nber_total_num_patents</option>
+       <option value='patent_abstract'>patent_abstract</option>
+       <option value='patent_average_processing_time'>patent_average_processing_time</option>
+       <option selected value='patent_date'>patent_date</option>
+       <option value='patent_firstnamed_assignee_city'>patent_firstnamed_assignee_city</option>
+       <option value='patent_firstnamed_assignee_country'>patent_firstnamed_assignee_country</option>
+       <option value='patent_firstnamed_assignee_id'>patent_firstnamed_assignee_id</option>
+       <option value='patent_firstnamed_assignee_location_id'>patent_firstnamed_assignee_location_id</option>
+       <option value='patent_firstnamed_assignee_state'>patent_firstnamed_assignee_state</option>
+       <option value='patent_firstnamed_inventor_city'>patent_firstnamed_inventor_city</option>
+       <option value='patent_firstnamed_inventor_country'>patent_firstnamed_inventor_country</option>
+       <option value='patent_firstnamed_inventor_id'>patent_firstnamed_inventor_id</option>
+       <option value='patent_firstnamed_inventor_location_id'>patent_firstnamed_inventor_location_id</option>
+       <option value='patent_firstnamed_inventor_state'>patent_firstnamed_inventor_state</option>
+       <option value='patent_kind'>patent_kind</option>
+       <option value='patent_num_cited_by_us_patents'>patent_num_cited_by_us_patents</option>
+       <option value='patent_num_combined_citations'>patent_num_combined_citations</option>
+       <option value='patent_num_foreign_citations'>patent_num_foreign_citations</option>
+       <option value='patent_num_us_application_citations'>patent_num_us_application_citations</option>
+       <option value='patent_num_us_patent_citations'>patent_num_us_patent_citations</option>
+       <option value='patent_number'>patent_number</option>
+       <option value='patent_processing_time'>patent_processing_time</option>
+       <option value='patent_title'>patent_title</option>
+       <option value='patent_type'>patent_type</option>
+       <option value='patent_year'>patent_year</option>
+       <option value='rawinventor_first_name'>rawinventor_first_name</option>
+       <option value='rawinventor_last_name'>rawinventor_last_name</option>
+       <option value='uspc_first_seen_date'>uspc_first_seen_date</option>
+       <option value='uspc_last_seen_date'>uspc_last_seen_date</option>
+       <option value='uspc_mainclass_id'>uspc_mainclass_id</option>
+       <option value='uspc_mainclass_title'>uspc_mainclass_title</option>
+       <option value='uspc_sequence'>uspc_sequence</option>
+       <option value='uspc_subclass_id'>uspc_subclass_id</option>
+       <option value='uspc_subclass_title'>uspc_subclass_title</option>
+       <option value='uspc_total_num_assignees'>uspc_total_num_assignees</option>
+       <option value='uspc_total_num_inventors'>uspc_total_num_inventors</option>
+       <option value='uspc_total_num_patents'>uspc_total_num_patents</option>
+       <option value='wipo_field_id'>wipo_field_id</option>
+       <option value='wipo_field_title'>wipo_field_title</option>
+       <option value='wipo_sector_title'>wipo_sector_title</option>
+       <option value='wipo_sequence'>wipo_sequence</option>
+      </select>
+     </td>
+     <td class="">
+      <label class="control-label" for="sort-value">Select Sort Value:</label>
+      <select class="form-control" id="sort-value">
+       <option value="desc">Desending</option>
+       <option value="asc">Assending</option>
+
+      </select>
+     </td>
+    </tr>
+   </td>
+  </table>
+
 
 
   <div class="row vertical-center-row">
@@ -366,8 +369,6 @@
     <button type="button" id="submitButton" class="btn btn-success" style="margin: 10px;">Get Patent Data!</button>
    </div>
   </div>
-
-
  </div>
 </body>
 

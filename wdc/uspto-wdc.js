@@ -3156,7 +3156,6 @@
 
    var patents = resp.patents,
     tableData = [];
-
    patents.forEach(function (patents, index) {
     if (table.tableInfo.id === "patentData") {
      tableData.push({
@@ -3172,7 +3171,7 @@
     }
 
     if (table.tableInfo.id === "inventorData") {
-     patents.inventors.forEach(function (inventors, index) {
+     patents.inventors.forEach(function (inventors) {
       tableData.push({
        "patent_number": patents.patent_number,
        "inventor_id": inventors.inventor_id,
@@ -3185,8 +3184,7 @@
        "inventor_last_name": inventors.inventor_last_name,
        "inventor_first_name": inventors.inventor_first_name,
        "inventor_lastknown_latitude": inventors.inventor_lastknown_latitude,
-       "inventor_lastknown_longitude": inventors.inventor_lastknown_longitude,
-       "myindex": index
+       "inventor_lastknown_longitude": inventors.inventor_lastknown_longitude
       });
      });
     }
