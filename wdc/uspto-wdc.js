@@ -3093,11 +3093,6 @@
      dataType: tableau.dataTypeEnum.string
     },
     {
-     id: "ipc_code",
-     alias: "ipc_code",
-     dataType: tableau.dataTypeEnum.string
-    },
-    {
      id: "cluster_by_ipc",
      alias: "cluster_by_ipc",
      dataType: tableau.dataTypeEnum.string
@@ -3256,7 +3251,6 @@
        ipcCode = IPCs.ipc_section + IPCs.ipc_class + IPCs.ipc_subclass.toUpperCase();
        tableData.push({
         "patent_number": patents.patent_number,
-        "ipc_code": ipcCode,
         "cluster_by_ipc": clusterLookup[ipcCode] ? clusterLookup[ipcCode].Cluster : "Unknown"
        });
       }
