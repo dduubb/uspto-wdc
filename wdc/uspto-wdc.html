@@ -22,6 +22,12 @@
 
  </style>
 
+ <script type="text/javascript">
+  function autoFill() {
+   document.getElementById('custom-filter').value = '"_or":[{"inventor_lastknown_state":"KS"},{"inventor_lastknown_state":"MO"}]';
+  }
+ </script>
+
 </head>
 
 <body>
@@ -44,7 +50,7 @@
       <input type="number" class="form-control" id="page" value="1" min="1">
      </td>
     </tr>
-    <tr class="">
+    <fieldset  class="">
      <td class=""><label class="control-label" for="filter-key">Select Filter Key:</label>
       <select class="form-control" id="filter-key">
        <option value='appcit_app_number'>appcit_app_number</option>
@@ -205,10 +211,16 @@
        <option value='wipo_sector_title'>wipo_sector_title</option>
        <option value='wipo_sequence'>wipo_sequence</option>
       </select>
-     </td>
+     </fieldset>
      <td class="">
       <label class="control-label" for="filter-value">Select Value:</label>
       <input type="text" class="form-control" id="filter-value" value="KS">
+     </td>
+    </tr>
+    <tr class="">
+     <td> <label class="control-label" for="sort-key">Custom Filter: Like </label><a href="#" onclick="autoFill();"> "_or":[{"inventor_lastknown_state":"KS"},{"inventor_lastknown_state":"MO"}]</a>
+      <input class="form-control" id="custom-filter">
+       </input>
      </td>
     </tr>
     <tr class="">
