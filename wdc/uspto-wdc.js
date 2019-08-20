@@ -3155,30 +3155,28 @@
      }
     };
    patents.forEach(function (patents) {
-
-    switch (table.tableInfo.id) {
-    case "patentData":
+    if (table.tableInfo.id === "patentData") {
      tableData.push(patents);
-     break;
-    case "inventorData":
+    }
+    if (table.tableInfo.id === "inventorData") {
      subTable("inventors", patents);
-     break;
-    case "assigneeData":
+    }
+    if (table.tableInfo.id === "assigneeData") {
      subTable("assignees", patents);
-     break;
-    case "wipoData":
+    }
+    if (table.tableInfo.id === "wipoData") {
      subTable("wipos", patents);
-     break;
-    case "uspcData":
+    }
+    if (table.tableInfo.id === "uspcData") {
      subTable("uspcs", patents);
-     break;
-    case "nberData":
+    }
+    if (table.tableInfo.id === "nberData") {
      subTable("nbers", patents);
-     break;
-    case "cpcData":
+    }
+    if (table.tableInfo.id === "cpcData") {
      subTable("cpcs", patents);
-     break;
-    case "ipcData":
+    }
+    if (table.tableInfo.id === "ipcData") {
      patents.IPCs.forEach(function (IPCs) {
       if (IPCs.ipc_section) {
        ipcCode = IPCs.ipc_section + IPCs.ipc_class + IPCs.ipc_subclass.toUpperCase();
@@ -3188,7 +3186,6 @@
        });
       }
      });
-     break;
     }
 
    });
@@ -3208,7 +3205,7 @@
     filterValue: $('#filter-value').val(),
     sortKey: $('#sort-key').val(),
     sortValue: $('#sort-value').val(),
-    f: ["patent_abstract", "patent_type", "patent_id", "patent_date", "patent_year", "patent_number", "patent_title", "assignee_id", "assignee_lastknown_latitude", "assignee_lastknown_longitude", "assignee_lastknown_city", "assignee_lastknown_state", "assignee_last_name", "assignee_first_name", "assignee_organization", "inventor_id", "inventor_lastknown_latitude", "inventor_lastknown_longitude", "inventor_lastknown_country", "inventor_lastknown_city", "inventor_lastknown_state", "inventor_last_name", "inventor_first_name", "inventor_state", "inventor_county", "inventor_county_fips", "wipo_sector_title", "uspc_mainclass_title", "nber_category_title", "cpc_group_title", "ipc_section", "ipc_class", "ipc_subclass"]
+    f: '["patent_abstract","patent_type","patent_id","patent_date","patent_year","patent_number","patent_title","assignee_id","assignee_lastknown_latitude","assignee_lastknown_longitude","assignee_lastknown_city","assignee_lastknown_state","assignee_last_name","assignee_first_name","assignee_organization","inventor_id","inventor_lastknown_latitude","inventor_lastknown_longitude","inventor_lastknown_country","inventor_lastknown_city","inventor_lastknown_state","inventor_last_name","inventor_first_name","inventor_state","inventor_county","inventor_county_fips","wipo_sector_title","uspc_mainclass_title","nber_category_title","cpc_group_title","ipc_section","ipc_class","ipc_subclass"]'
    };
 
    tableau.connectionData = JSON.stringify(queryObj);
