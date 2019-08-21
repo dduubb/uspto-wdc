@@ -2905,7 +2905,7 @@
     {
      id: "patent_date",
      alias: "patent_date",
-     dataType: tableau.dataTypeEnum.string
+     dataType: tableau.dataTypeEnum.date
     },
     {
      id: "patent_type",
@@ -2917,6 +2917,7 @@
     {
      id: "patent_number",
      alias: "patent_number",
+     hidden: true,
      dataType: tableau.dataTypeEnum.string
     },
     {
@@ -2981,6 +2982,7 @@
     {
      id: "patent_number",
      alias: "patent_number",
+     hidden: true,
      dataType: tableau.dataTypeEnum.string
     },
     {
@@ -3032,6 +3034,7 @@
     {
      id: "patent_number",
      alias: "patent_number",
+     hidden: true,
      dataType: tableau.dataTypeEnum.string
     },
     {
@@ -3044,6 +3047,7 @@
     {
      id: "patent_number",
      alias: "patent_number",
+     hidden: true,
      dataType: tableau.dataTypeEnum.string
     },
     {
@@ -3056,6 +3060,7 @@
     {
      id: "patent_number",
      alias: "patent_number",
+     hidden: true,
      dataType: tableau.dataTypeEnum.string
     },
     {
@@ -3068,6 +3073,7 @@
     {
      id: "patent_number",
      alias: "patent_number",
+     hidden: true,
      dataType: tableau.dataTypeEnum.string
     },
     {
@@ -3080,6 +3086,7 @@
     {
      id: "patent_number",
      alias: "patent_number",
+     hidden: true,
      dataType: tableau.dataTypeEnum.string
     },
     {
