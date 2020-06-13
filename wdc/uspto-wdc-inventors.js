@@ -3239,6 +3239,7 @@
 
    tableau.connectionData = JSON.stringify(queryObj);
    tableau.connectionName = "Inventor Feed";
+   alert(tableau.connectionData);
    tableau.submit();
   });
  });
