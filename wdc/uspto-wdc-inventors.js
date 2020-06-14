@@ -3210,7 +3210,7 @@
           subTable("cpcs", inventors);
         }
         if (table.tableInfo.id === "ipcData") { 
-          subTable("ipcs", inventors);
+          subTable("IPCs", inventors);
           inventors.IPCs.forEach(function (IPCs) {
             if (IPCs.ipc_section) {
               ipcCode = IPCs.ipc_section + IPCs.ipc_class + IPCs.ipc_subclass.toUpperCase();
