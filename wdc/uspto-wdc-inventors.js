@@ -3084,11 +3084,15 @@
      id: "cluster_by_ipc",
      alias: "cluster_by_ipc",
      dataType: tableau.dataTypeEnum.string
-    }
-   ],
+    },
     {
      id: "ipc_class",
      alias: "ipc_class",
+     dataType: tableau.dataTypeEnum.string
+    },
+    {
+     id: "ipc_sections",
+     alias: "ipc_section",
      dataType: tableau.dataTypeEnum.string
     }
    ],
@@ -3212,7 +3216,8 @@
        tableData.push({
         "inventor_id": inventors.inventor_id,
         "cluster_by_ipc": clusterLookup[ipcCode] ? clusterLookup[ipcCode].Cluster : "Unknown",
-        "ipc_class":ipc_class
+        "ipc_class":ipc_class,
+        "ipc_section":ipc_section
        });
       }
      });
