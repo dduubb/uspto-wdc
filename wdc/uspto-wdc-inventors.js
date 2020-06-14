@@ -3155,7 +3155,7 @@
 
   var queryObj = JSON.parse(tableau.connectionData),
    filter = queryObj.customFilter || '"' + queryObj.filterKey + '":"' + queryObj.filterValue + '"',
-   finalURL = 'http://www.patentsview.org/api/inventors/query?q={' + filter + '}&o={"page":' + queryObj.page + ',"per_page":' + queryObj.per_page + '}&f=' + queryObj.f + '&s=[{"' + queryObj.sortKey + '":"' + queryObj.sortValue + '"}]';
+   finalURL = 'https://www.patentsview.org/api/inventors/query?q={' + filter + '}&o={"page":' + queryObj.page + ',"per_page":' + queryObj.per_page + '}&f=' + queryObj.f + '&s=[{"' + queryObj.sortKey + '":"' + queryObj.sortValue + '"}]';
   $.getJSON(finalURL, function (resp) {
 
    var inventors = resp.inventors,
@@ -3234,7 +3234,7 @@
      f: '["patent_abstract","patent_type","patent_id","patent_date","patent_number","patent_title","assignee_id","assignee_lastknown_latitude","assignee_lastknown_longitude","assignee_lastknown_city","assignee_lastknown_state","assignee_last_name","assignee_first_name","assignee_organization","inventor_id","inventor_last_name","inventor_first_name","inventor_lastknown_city","inventor_lastknown_state","inventor_lastknown_country","inventor_lastknown_latitude","inventor_lastknown_longitude","inventor_total_num_patents","inventor_first_seen_date","inventor_last_seen_date","wipo_sector_title","nber_category_title","uspc_mainclass_title","cpc_group_title","ipc_section","ipc_class","ipc_subclass","location_county_fips"]'
     },
     filter = queryObj.customFilter || '"' + queryObj.filterKey + '":"' + queryObj.filterValue + '"',
-    finalURL = 'http://www.patentsview.org/api/inventors/query?q={' + filter + '}&o={"page":' + queryObj.page + ',"per_page":' + queryObj.per_page + '}&f=' + queryObj.f + '&s=[{"' + queryObj.sortKey + '":"' + queryObj.sortValue + '"}]';
+    finalURL = 'https://www.patentsview.org/api/inventors/query?q={' + filter + '}&o={"page":' + queryObj.page + ',"per_page":' + queryObj.per_page + '}&f=' + queryObj.f + '&s=[{"' + queryObj.sortKey + '":"' + queryObj.sortValue + '"}]';
    $("#output").attr("href", finalURL).append("Test Link");
 
    tableau.connectionData = JSON.stringify(queryObj);
