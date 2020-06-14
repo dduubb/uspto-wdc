@@ -3146,7 +3146,7 @@
   var queryObj = JSON.parse(tableau.connectionData),
    filter = queryObj.customFilter || '"' + queryObj.filterKey + '":"' + queryObj.filterValue + '"';
 
-  $.getJSON('http://www.patentsview.org/api/patents/query?q={' + filter + '}&o={"page":' + queryObj.page + ',"per_page":' + queryObj.per_page + ',"matched_subentities_only": "false"}&f=' + queryObj.f + '&s=[{"' + queryObj.sortKey + '":"' + queryObj.sortValue + '"}]', function (resp) {
+  $.getJSON('https://www.patentsview.org/api/patents/query?q={' + filter + '}&o={"page":' + queryObj.page + ',"per_page":' + queryObj.per_page + ',"matched_subentities_only": "false"}&f=' + queryObj.f + '&s=[{"' + queryObj.sortKey + '":"' + queryObj.sortValue + '"}]', function (resp) {
 
 
    var patents = resp.patents,
@@ -3218,7 +3218,7 @@
     f: '["patent_abstract", "patent_type", "patent_id", "patent_date", "patent_year", "patent_number", "patent_title", "assignee_id", "assignee_lastknown_latitude", "assignee_lastknown_longitude", "assignee_lastknown_city", "assignee_lastknown_state", "assignee_last_name", "assignee_first_name", "assignee_organization", "inventor_id", "inventor_lastknown_latitude", "inventor_lastknown_longitude", "inventor_lastknown_country", "inventor_lastknown_city", "inventor_lastknown_state", "inventor_last_name", "inventor_first_name", "inventor_state", "inventor_county", "inventor_county_fips", "wipo_sector_title", "uspc_mainclass_title", "nber_category_title", "cpc_group_title", "ipc_section", "ipc_class", "ipc_subclass"]'
    },
     filter = queryObj.customFilter || '"' + queryObj.filterKey + '":"' + queryObj.filterValue + '"',
-    finalURL = 'http://www.patentsview.org/api/patents/query?q={' + filter + '}&o={"page":' + queryObj.page + ',"per_page":' + queryObj.per_page + ',"matched_subentities_only": "true"}&f=' + queryObj.f + '&s=[{"' + queryObj.sortKey + '":"' + queryObj.sortValue + '"}]';
+    finalURL = 'https://www.patentsview.org/api/patents/query?q={' + filter + '}&o={"page":' + queryObj.page + ',"per_page":' + queryObj.per_page + ',"matched_subentities_only": "true"}&f=' + queryObj.f + '&s=[{"' + queryObj.sortKey + '":"' + queryObj.sortValue + '"}]';
    $("#output").attr("href", finalURL).append("Test Link");
 
    tableau.connectionData = JSON.stringify(queryObj);
