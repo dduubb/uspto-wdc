@@ -3086,13 +3086,13 @@
           dataType: tableau.dataTypeEnum.string
         },
         {
-          id: "ipc_class",
-          alias: "ipc_class",
+          id: "ipc_code",
+          alias: "ipc_code",
           dataType: tableau.dataTypeEnum.string
         },
         {
-          id: "ipc_section",
-          alias: "ipc_section",
+          id: "ipc_count",
+          alias: "ipc_count",
           dataType: tableau.dataTypeEnum.string
         }
       ],
@@ -3209,18 +3209,19 @@
         if (table.tableInfo.id === "cpcData") {
           subTable("cpcs", inventors);
         }
-        if (table.tableInfo.id === "ipcData") { 
-          
+        if (table.tableInfo.id === "ipcData") {
+          // this is to lookup each IPC code and generate a look up a cluster
           inventors.IPCs.forEach(function (IPCs) {
             if (IPCs.ipc_section) {
               ipcCode = IPCs.ipc_section + IPCs.ipc_class + IPCs.ipc_subclass.toUpperCase();
-              "ipc_section"= IPCs.ipc_section;
-              "ipc_class"=  "IPCs.ipc_class";
+              if (tableData.findIndex(x => ( (x.cluster_by_ipc) === (clusterLookup[ipcCode] ? clusterLookup[ipcCode].Cluster :"Unknown" ) && x.inventor_id === inventors.inventor_id )) === -1) {
+                console.log((clusterLookup[ipcCode] ? clusterLookup[ipcCode].Cluster :"" ));
               tableData.push({
                 "inventor_id": inventors.inventor_id,
                 "cluster_by_ipc": clusterLookup[ipcCode] ? clusterLookup[ipcCode].Cluster : "Unknown",
-
-              });
+               "ipc_code": ipcCode,
+               "ipc_count":  inventors.IPCs.length
+              });}
             }
           });
         }
@@ -3253,7 +3254,6 @@
 
       tableau.connectionData = JSON.stringify(queryObj);
       tableau.connectionName = "Inventor Feed";
-      alert(tableau.connectionData);
       tableau.submit();
     });
   });
