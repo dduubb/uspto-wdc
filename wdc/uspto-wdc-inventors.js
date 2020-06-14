@@ -3217,7 +3217,8 @@
               tableData.push({
                 "inventor_id": inventors.inventor_id,
                 "cluster_by_ipc": clusterLookup[ipcCode] ? clusterLookup[ipcCode].Cluster : "Unknown",
-                 subTable("IPCs", inventors)
+                "ipc_section": IPCs.ipc_section,
+                "ipc_class":  IPCs.ipc_class
               });
             }
           });
