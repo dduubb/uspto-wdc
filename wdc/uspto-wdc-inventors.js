@@ -3214,11 +3214,12 @@
           inventors.IPCs.forEach(function (IPCs) {
             if (IPCs.ipc_section) {
               ipcCode = IPCs.ipc_section + IPCs.ipc_class + IPCs.ipc_subclass.toUpperCase();
+              "ipc_section": IPCs.ipc_section;
+              "ipc_class":  IPCs.ipc_class;
               tableData.push({
                 "inventor_id": inventors.inventor_id,
                 "cluster_by_ipc": clusterLookup[ipcCode] ? clusterLookup[ipcCode].Cluster : "Unknown",
-                "ipc_section": IPCs.ipc_section,
-                "ipc_class":  IPCs.ipc_class
+
               });
             }
           });
