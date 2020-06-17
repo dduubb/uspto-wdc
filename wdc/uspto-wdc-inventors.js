@@ -4,7 +4,8 @@
 
 
   let csvResult = []; let obj = []; let usedColumns = []; let tableList = []; let tables = [];
-
+//////////////////////////////////////////////////////////////////////////////
+// End point configuration
   const endpointConfig = {
     inventors: {fileName:"endpoints/inventors.csv", keyId:"inventor_id", group:"inventors"},
     patents: {fileName:"endpoints/patents.csv", keyId:"patents_id", group:"patents"},
@@ -15,7 +16,7 @@
   
   //////////////////////////////////////////////////////////////////////////////////
   // Get cluster codes from csv file and create cluster results NOT DOING ANYTHING NOW
-  $.get("endpoints/clusterCodes.txt", (data) => {
+  $.get("endpoints/clusterCodes.csv", (data) => {
     var csvdata = Papa.parse(data);
     csvResult = new Map(csvdata.data.map((i) => [i[0], i[1]]));
   });
