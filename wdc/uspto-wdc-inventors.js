@@ -25,7 +25,8 @@
 // Get the data endpoint data from csv and create JSON name obj  < CHANGE THIS VARIABLE
   $.get(selectedEndpoint.fileName, (data) => {
     var csvdata = Papa.parse(data, {
-      skipEmptyLines: true
+      skipEmptyLines: true,      
+      comments: "#"
     });
     obj = csvdata.data.slice(1).map(([id, group, alias, dataType, n, description]) => {
       return (

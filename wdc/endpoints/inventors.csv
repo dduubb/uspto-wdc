@@ -1,187 +1,187 @@
 API Field Name,Group,Common Name,Type,Query,Description
-app_number,applications,Number,string,Y,Application ID assigned by USPTO
-app_type,applications,Type,string,Y,"Patent Application Type (From XML data dictionary). 02 through 28 = Utility application; 29, D = Design application; 60 = Provisional application; 90 = Reexamination request"
-app_country,applications,Country,string,Y,"Country in which patent application was filed, always U.S."
-app_date,applications,Filing Date,date,Y,Date the patent application was filed (filing date)
-assignee_location_id,assignees,Location ID,string,Y,Unique database ID for the assignee's location as listed on the patent
-assignee_longitude,assignees,Longitude,float,N,Longitude for assignee's location a listed on the patent
-assignee_num_patents_for_inventor,assignees,Number of patents for Inventor,integer,Y,"Number of patents in the database for a given assignee and the selected inventor (as indicated by unique assignee_id and unique inventor_id, respectively)"
-assignee_lastknown_longitude,assignees,Last Known Longitude,float,N,"Longitude for assignee's location as of their most recent patent grant date (equivalently, as of assignee_last_seen_date)"
-assignee_lastknown_state,assignees,Last Known State,string,Y,"Assignee's state as of their most recent patent grant date (equivalently, as of assignee_last_seen_date)"
-assignee_latitude,assignees,Latitude,float,N,Latitude for assignee's location as listed on the patent
-assignee_total_num_inventors,assignees,Total Number of Inventors,integer,Y,Total number of inventors in database for a given assignee (as indicated by unique assignee_id)
-assignee_total_num_patents,assignees,Total Number of Patents,integer,Y,Total number of patents in database for a given assignee (as indicated by unique assignee_id)
-assignee_type,assignees,Type,string,Y,"Classification of assignee. 2 - US Company or Corporation, 3 - Foreign Company or Corporation, 4 - US Individual, 5 - Foreign Individual, 6 - US Government, 7 - Foreign Government, 8 - Country Government, 9 - State Government (US). Note: A ""1"" appearing before any of these codes signifies part interest"
-assignee_organization,assignees,Organization,string,Y,"Organization name, if assignee is organization"
-assignee_state,assignees,State,string,Y,Assignee's state as listed on the patent
-assignee_state_fips,assignees,State FIPS code,string,Y,FIPS code of the assignee's state associated with their location_id on a given patent (only US)
-assignee_lastknown_location_id,assignees,Last Known Location ID,string,Y,"Unique database ID for the assignee's location on their most recent patent grant date (equivalently, as of assignee_last_seen_date)"
-assignee_county_fips,assignees,County FIPS code,string,Y,FIPS code of the assignee's county associated with their location_id on a given patent (only US)
-assignee_first_name,assignees,First Name,string,Y,"First name, if assignee is individual"
-assignee_first_seen_date,assignees,First Seen Date,date,Y,Earliest patent grant date for all of an asisgnee's patents in the database
-assignee_city,assignees,City,string,Y,Assignee's city as listed on the patent
-assignee_country,assignees,Country,string,Y,Assignee's country as listed on the patent
-assignee_county,assignees,County,string,Y,Assignee's county associated with their location_id on a given patent (only US)
-assignee_lastknown_city,assignees,Last Known City,string,Y,"Assignee's country as of their most recent patent grant date (equivalently, as of assignee_last_seen_date)"
-assignee_lastknown_country,assignees,Last Known Country,string,Y,"Assignee's city as of their most recent patent grant date (equivalently, as of assignee_last_seen_date)"
-assignee_lastknown_latitude,assignees,Last Known Latitude,float,N,"Latitude for assignee's location as of their most recent patent grant date (equivalently, as of assignee_last_seen_date)"
-assignee_id,assignees,ID,string,Y,Unique database assignee ID assigned by disambiguation algorithm
-assignee_last_name,assignees,Last Name,string,Y,"Last name, if assignee is individual"
-assignee_last_seen_date,assignees,Last Seen Date,date,Y,Most recent patent grant date for all of the asisgnee's patents in the database
-coinventor_lastknown_location_id,coinventors,Last Known Location ID,string,Y,"Unique database ID for the coinventor's city as of their most recent patent grant date (equivalently, as of coinventor_last_seen_date)"
-coinventor_lastknown_latitude,coinventors,Last Known Latitude,float,N,"Latitude of coinventor's city as of their most recent patent grant date (equivalently, as of coinventor_last_seen_date)"
-coinventor_lastknown_country,coinventors,Last Known Country,string,Y,"Coinventor's country as of their most recent patent grant date (equivalently, as of coinventor_last_seen_date)"
-coinventor_lastknown_longitude,coinventors,Last Known Longitude,float,N,"Longitude of coinventor's city as of their most recent patent grant date (equivalently, as of coinventor_last_seen_date)"
-coinventor_total_num_patents,coinventors,Total Number of Patents,integer,Y,Total number of patents in the database for a given coinventor (as indicated by unique coinventor_id)
-coinventor_num_patents_for_inventor,coinventors,Number of patents for Inventor,integer,N,"Total number of patents in the database for a given coinventor with the selected inventor (as indicated by unique coinventor_id and unique inventor_id, respectively)"
-coinventor_lastknown_state,coinventors,Last Known State,string,Y,"Coinventor's state as of their most recent patent grant date (equivalently, as of coinventor_last_seen_date)"
-coinventor_lastknown_city,coinventors,Last Known City,string,Y,"Coinventor's city as of their most recent patent grant date (equivalently, as of coinventor_last_seen_date)"
-coinventor_first_name,coinventors,First Name,string,Y,First name of the coinventor
-coinventor_country,coinventors,Country,string,Y,Coinventor's country as listed on the patent
-coinventor_city,coinventors,City,string,Y,Coinventor's city as listed on the patent
-coinventor_first_seen_date,coinventors,First Seen Date,date,Y,Grant date of coinventor's earliest patent
-coinventor_last_seen_date,coinventors,Last Seen Date,date,Y,Grant date of coinventor's most recent patent in the database
-coinventor_last_name,coinventors,Last Name,string,Y,Last name of the coinventor
-coinventor_id,coinventors,ID,string,Y,Unique ID for a coinventor assigned by disambiguation algorithm
-coinventor_longitude,coinvetnros,Longitude,float,N,Longitude of coinventor's city as lited on the selected patent
-coinventor_location_id,coinvetnros,Location ID,string,Y,Unique database ID for the coinventor's city as listed on the selected patent
-coinventor_latitude,coinvetnros,Latitude,float,N,Latitude of coinventor's city as listed on the selected patent
-cpc_subsection_id,cpcs,Subsection ID,string,Y,CPC subsection ID
-cpc_subgroup_title,cpcs,Subgroup Title,string,Y,Description of CPC subgroup
-cpc_subgroup_id,cpcs,Subgroup ID,string,Y,CPC subgroup ID
-cpc_subsection_title,cpcs,Subsection Title,string,Y,Description of CPC subsection
-cpc_total_num_patents,cpcs,Total Number of Patents,integer,Y,Total number of patents within a CPC subsection
-cpc_total_num_inventors,cpcs,Total Number of Inventors,integer,Y,Total number of unique inventors on patents within a CPC subsection
-cpc_total_num_assignees,cpcs,Total Number of Assignees,integer,Y,Total number of unique assignees on patents within a CPC subsection
-cpc_group_id,cpcs,Group ID,string,Y,CPC group ID
-cpc_first_seen_date,cpcs,First Seen Date,date,Y,Grant date of the earliest patent in the database within a CPC subsection.
-cpc_category,cpcs,Category,string,Y,Top Level Cooperative Patent Classification (CPC) category (http://www.cooperativepatentclassification.org/index.html)
-cpc_group_title,cpcs,Group Title,string,Y,Description of CPC group
-cpc_section_id,cpcs,Section ID,string,Y,"CPC section ID (A = Human Necessitites, B = Performing Operations; Transporint, C = Chemistry; Metallurgy, D = Textiles; paper, E = Fixed Constructing, F = Mechanical Engineering; Lighting; Heating; Weapons; Blasting Engines; Pumps, G = Physics, H = Electricity, Y = General Tagging of new technological developments)"
-cpc_num_patents_for_inventor,cpcs,Number of Patents for CPC Subsection,integer,Y,Number of patents within a CPC subsection for a given inventor
-cpc_last_seen_date,cpcs,Last Seen Date,date,Y,Grant date of the most recent patent in the database within a CPC subsection
-examiner_last_name,examiners,Last name,string,Y,Last name of examiner
-examiner_role,examiners,Role,string,Y,Specifies the role of the examiner on the patent (either primary or assistant examiner)
-examiner_group,examiners,Group,string,Y,"Art unit, tech center, industry sector, or other grouping of the USPTO examiners"
-examiner_first_name,examiners,First name,string,Y,First name of examiner
-examiner_id,examiners,ID,string,Y,Unique database examiner ID (not currently disambiguated)
-forprior_docnumber,foreign_priority,Document number,string,Y,Foreign patent application number
-forprior_kind,foreign_priority,Kind,string,Y,"Kind of foreign priority document (international, national, regional)"
-forprior_sequence,foreign_priority,Sequence,int,Y,Order in which foreign priority documents appear in patent file
-forprior_country,foreign_priority,Country,string,Y,Country in which patent was originally filed
-forprior_date,foreign_priority,Date,date,Y,Date at which patent was originally filed
-govint_org_level_three,gov_interests,Third Level Government Organization,string,Y,"The third-level U.S. government organization name related to the organization reported in the government interest statement on patents (if available). For example, the National Institute for Occupational Safety and Health is third-level in relation to the Centers for Disease Control and Prevention that report to the U.S. Department of Health and Human Services."
-govint_org_level_two,gov_interests,Second Level Government Organization,string,Y,"The second-level U.S. government organization name related to the organization reported in the government interest statement on patents (if available). For example, the National Institutes of Health is second-level in relation to the National Heart, Lung, and Blood Institute."
-govint_raw_statement,gov_interests,Government Interest Statement,full text,Y,The full government interest statement as reported on a given patent (if available).
-govint_org_name,gov_interests,Organization Name,string,Y,Name of the U.S. government organization reported in the government interest statement on patents (if available).
-govint_contract_award_number,gov_interests,Contract/Award Number,string,Y,Contract or award number as reported in the government interest statement on patents (if available)
-govint_org_id,gov_interests,Organization ID,integer,Y,Organization ID of the U.S. government agency reported in the government interest statement on patents (if available)
-govint_org_level_one,gov_interests,Top Level Government Organization,string,Y,"The top-level U.S. government organization name related to the organization reported in the government interest statement on patents (if available). For example, the National Institutes of Health report to the U.S. Department of Health and Human Services."
+#app_number,applications,Number,string,Y,Application ID assigned by USPTO
+#app_type,applications,Type,string,Y,"Patent Application Type (From XML data dictionary). 02 through 28 = Utility application; 29, D = Design application; 60 = Provisional application; 90 = Reexamination request"
+#app_country,applications,Country,string,Y,"Country in which patent application was filed, always U.S."
+#app_date,applications,Filing Date,date,Y,Date the patent application was filed (filing date)
+#assignee_location_id,assignees,Location ID,string,Y,Unique database ID for the assignee's location as listed on the patent
+#assignee_longitude,assignees,Longitude,float,N,Longitude for assignee's location a listed on the patent
+#assignee_num_patents_for_inventor,assignees,Number of patents for Inventor,integer,Y,"Number of patents in the database for a given assignee and the selected inventor (as indicated by unique assignee_id and unique inventor_id, respectively)"
+#assignee_lastknown_longitude,assignees,Last Known Longitude,float,N,"Longitude for assignee's location as of their most recent patent grant date (equivalently, as of assignee_last_seen_date)"
+#assignee_lastknown_state,assignees,Last Known State,string,Y,"Assignee's state as of their most recent patent grant date (equivalently, as of assignee_last_seen_date)"
+#assignee_latitude,assignees,Latitude,float,N,Latitude for assignee's location as listed on the patent
+#assignee_total_num_inventors,assignees,Total Number of Inventors,integer,Y,Total number of inventors in database for a given assignee (as indicated by unique assignee_id)
+#assignee_total_num_patents,assignees,Total Number of Patents,integer,Y,Total number of patents in database for a given assignee (as indicated by unique assignee_id)
+#assignee_type,assignees,Type,string,Y,"Classification of assignee. 2 - US Company or Corporation, 3 - Foreign Company or Corporation, 4 - US Individual, 5 - Foreign Individual, 6 - US Government, 7 - Foreign Government, 8 - Country Government, 9 - State Government (US). Note: A ""1"" appearing before any of these codes signifies part interest"
+#assignee_organization,assignees,Organization,string,Y,"Organization name, if assignee is organization"
+#assignee_state,assignees,State,string,Y,Assignee's state as listed on the patent
+#assignee_state_fips,assignees,State FIPS code,string,Y,FIPS code of the assignee's state associated with their location_id on a given patent (only US)
+#assignee_lastknown_location_id,assignees,Last Known Location ID,string,Y,"Unique database ID for the assignee's location on their most recent patent grant date (equivalently, as of assignee_last_seen_date)"
+#assignee_county_fips,assignees,County FIPS code,string,Y,FIPS code of the assignee's county associated with their location_id on a given patent (only US)
+#assignee_first_name,assignees,First Name,string,Y,"First name, if assignee is individual"
+#assignee_first_seen_date,assignees,First Seen Date,date,Y,Earliest patent grant date for all of an asisgnee's patents in the database
+#assignee_city,assignees,City,string,Y,Assignee's city as listed on the patent
+#assignee_country,assignees,Country,string,Y,Assignee's country as listed on the patent
+#assignee_county,assignees,County,string,Y,Assignee's county associated with their location_id on a given patent (only US)
+#assignee_lastknown_city,assignees,Last Known City,string,Y,"Assignee's country as of their most recent patent grant date (equivalently, as of assignee_last_seen_date)"
+#assignee_lastknown_country,assignees,Last Known Country,string,Y,"Assignee's city as of their most recent patent grant date (equivalently, as of assignee_last_seen_date)"
+#assignee_lastknown_latitude,assignees,Last Known Latitude,float,N,"Latitude for assignee's location as of their most recent patent grant date (equivalently, as of assignee_last_seen_date)"
+#assignee_id,assignees,ID,string,Y,Unique database assignee ID assigned by disambiguation algorithm
+#assignee_last_name,assignees,Last Name,string,Y,"Last name, if assignee is individual"
+#assignee_last_seen_date,assignees,Last Seen Date,date,Y,Most recent patent grant date for all of the asisgnee's patents in the database
+#coinventor_lastknown_location_id,coinventors,Last Known Location ID,string,Y,"Unique database ID for the coinventor's city as of their most recent patent grant date (equivalently, as of coinventor_last_seen_date)"
+#coinventor_lastknown_latitude,coinventors,Last Known Latitude,float,N,"Latitude of coinventor's city as of their most recent patent grant date (equivalently, as of coinventor_last_seen_date)"
+#coinventor_lastknown_country,coinventors,Last Known Country,string,Y,"Coinventor's country as of their most recent patent grant date (equivalently, as of coinventor_last_seen_date)"
+#coinventor_lastknown_longitude,coinventors,Last Known Longitude,float,N,"Longitude of coinventor's city as of their most recent patent grant date (equivalently, as of coinventor_last_seen_date)"
+#coinventor_total_num_patents,coinventors,Total Number of Patents,integer,Y,Total number of patents in the database for a given coinventor (as indicated by unique coinventor_id)
+#coinventor_num_patents_for_inventor,coinventors,Number of patents for Inventor,integer,N,"Total number of patents in the database for a given coinventor with the selected inventor (as indicated by unique coinventor_id and unique inventor_id, respectively)"
+#coinventor_lastknown_state,coinventors,Last Known State,string,Y,"Coinventor's state as of their most recent patent grant date (equivalently, as of coinventor_last_seen_date)"
+#coinventor_lastknown_city,coinventors,Last Known City,string,Y,"Coinventor's city as of their most recent patent grant date (equivalently, as of coinventor_last_seen_date)"
+#coinventor_first_name,coinventors,First Name,string,Y,First name of the coinventor
+#coinventor_country,coinventors,Country,string,Y,Coinventor's country as listed on the patent
+#coinventor_city,coinventors,City,string,Y,Coinventor's city as listed on the patent
+#coinventor_first_seen_date,coinventors,First Seen Date,date,Y,Grant date of coinventor's earliest patent
+#coinventor_last_seen_date,coinventors,Last Seen Date,date,Y,Grant date of coinventor's most recent patent in the database
+#coinventor_last_name,coinventors,Last Name,string,Y,Last name of the coinventor
+#coinventor_id,coinventors,ID,string,Y,Unique ID for a coinventor assigned by disambiguation algorithm
+#coinventor_longitude,coinvetnros,Longitude,float,N,Longitude of coinventor's city as lited on the selected patent
+#coinventor_location_id,coinvetnros,Location ID,string,Y,Unique database ID for the coinventor's city as listed on the selected patent
+#coinventor_latitude,coinvetnros,Latitude,float,N,Latitude of coinventor's city as listed on the selected patent
+#cpc_subsection_id,cpcs,Subsection ID,string,Y,CPC subsection ID
+#cpc_subgroup_title,cpcs,Subgroup Title,string,Y,Description of CPC subgroup
+#cpc_subgroup_id,cpcs,Subgroup ID,string,Y,CPC subgroup ID
+#cpc_subsection_title,cpcs,Subsection Title,string,Y,Description of CPC subsection
+#cpc_total_num_patents,cpcs,Total Number of Patents,integer,Y,Total number of patents within a CPC subsection
+#cpc_total_num_inventors,cpcs,Total Number of Inventors,integer,Y,Total number of unique inventors on patents within a CPC subsection
+#cpc_total_num_assignees,cpcs,Total Number of Assignees,integer,Y,Total number of unique assignees on patents within a CPC subsection
+#cpc_group_id,cpcs,Group ID,string,Y,CPC group ID
+#cpc_first_seen_date,cpcs,First Seen Date,date,Y,Grant date of the earliest patent in the database within a CPC subsection.
+#cpc_category,cpcs,Category,string,Y,Top Level Cooperative Patent Classification (CPC) category (http://www.cooperativepatentclassification.org/index.html)
+#cpc_group_title,cpcs,Group Title,string,Y,Description of CPC group
+#cpc_section_id,cpcs,Section ID,string,Y,"CPC section ID (A = Human Necessitites, B = Performing Operations; Transporint, C = Chemistry; Metallurgy, D = Textiles; paper, E = Fixed Constructing, F = Mechanical Engineering; Lighting; Heating; Weapons; Blasting Engines; Pumps, G = Physics, H = Electricity, Y = General Tagging of new technological developments)"
+#cpc_num_patents_for_inventor,cpcs,Number of Patents for CPC Subsection,integer,Y,Number of patents within a CPC subsection for a given inventor
+#cpc_last_seen_date,cpcs,Last Seen Date,date,Y,Grant date of the most recent patent in the database within a CPC subsection
+#examiner_last_name,examiners,Last name,string,Y,Last name of examiner
+#examiner_role,examiners,Role,string,Y,Specifies the role of the examiner on the patent (either primary or assistant examiner)
+#examiner_group,examiners,Group,string,Y,"Art unit, tech center, industry sector, or other grouping of the USPTO examiners"
+#examiner_first_name,examiners,First name,string,Y,First name of examiner
+#examiner_id,examiners,ID,string,Y,Unique database examiner ID (not currently disambiguated)
+#forprior_docnumber,foreign_priority,Document number,string,Y,Foreign patent application number
+#forprior_kind,foreign_priority,Kind,string,Y,"Kind of foreign priority document (international, national, regional)"
+#forprior_sequence,foreign_priority,Sequence,int,Y,Order in which foreign priority documents appear in patent file
+#forprior_country,foreign_priority,Country,string,Y,Country in which patent was originally filed
+#forprior_date,foreign_priority,Date,date,Y,Date at which patent was originally filed
+#govint_org_level_three,gov_interests,Third Level Government Organization,string,Y,"The third-level U.S. government organization name related to the organization reported in the government interest statement on patents (if available). For example, the National Institute for Occupational Safety and Health is third-level in relation to the Centers for Disease Control and Prevention that report to the U.S. Department of Health and Human Services."
+#govint_org_level_two,gov_interests,Second Level Government Organization,string,Y,"The second-level U.S. government organization name related to the organization reported in the government interest statement on patents (if available). For example, the National Institutes of Health is second-level in relation to the National Heart, Lung, and Blood Institute."
+#govint_raw_statement,gov_interests,Government Interest Statement,full text,Y,The full government interest statement as reported on a given patent (if available).
+#govint_org_name,gov_interests,Organization Name,string,Y,Name of the U.S. government organization reported in the government interest statement on patents (if available).
+#govint_contract_award_number,gov_interests,Contract/Award Number,string,Y,Contract or award number as reported in the government interest statement on patents (if available)
+#govint_org_id,gov_interests,Organization ID,integer,Y,Organization ID of the U.S. government agency reported in the government interest statement on patents (if available)
+#govint_org_level_one,gov_interests,Top Level Government Organization,string,Y,"The top-level U.S. government organization name related to the organization reported in the government interest statement on patents (if available). For example, the National Institutes of Health report to the U.S. Department of Health and Human Services."
 inventor_lastknown_latitude,inventors,Last Known Latitude,float,N,"Latitude of inventor's city as of  their most recent patent grant date (equivalently, as of inventor_last_seen_date)"
 inventor_lastknown_country,inventors,Last Known Country,string,Y,"Inventor's country as of their most recent patent grant date (equivalently, as of inventor_last_seen_date)"
 inventor_lastknown_city,inventors,Last Known City,string,Y,"Inventor's city as of their most recent patent grant date (equivalently, as of inventor_last_seen_date)"
-inventor_lastknown_location_id,inventors,Last Known Location ID,string,Y,"Unique database ID for the inventor's location as of their most recent patent grant date (equivalently, as of inventor_last_seen_date)"
+#inventor_lastknown_location_id,inventors,Last Known Location ID,string,Y,"Unique database ID for the inventor's location as of their most recent patent grant date (equivalently, as of inventor_last_seen_date)"
 inventor_total_num_patents,inventors,Total Number of Patents,integer,Y,Total number of patents in the database for a given inventor (as indicated by unique inventor_id)
 inventor_lastknown_state,inventors,Last Known State,string,Y,"Inventor's state as of their most recent patent grant date (equivalently, as of inventor_last_seen_date)"
 inventor_lastknown_longitude,inventors,Last Known Longitude,float,N,"Longitude of inventor's city as of  their most recent patent grant date (equivalently, as of inventor_last_seen_date)"
 inventor_id,inventors,ID,string,Y,Unique database inventor ID  by disambiguation algorithm
-inventor_first_seen_date,inventors,First Seen Date,date,Y,Earliest patent grant date for all the inventor's patents in the database
-inventor_first_name,inventors,First Name,string,Y,First name of inventor
-inventor_last_seen_date,inventors,Last Seen Date,date,Y,Most recent patent grant date for all the inventor's patents in the database
-inventor_last_name,inventors,Last Name,string,Y,Last name of inventor
-inventor_key_id,inventors,Inventor key id,string,N,Special identifier used as the default sort field for the inventor query. This field may be deprecated in a future version.
-ipc_subgroup,ipcs,Subgroup,string,Y,Subdivisions of IPC main group
-ipc_subclass,ipcs,Subclass,string,Y,Subdivisions IPC class
-ipc_section,ipcs,Section,string,Y,"Highest hierarchical levels of the IPC corresponding to broad technical fields ( A = Human Necessitites, B = Performing Operations; Transporint, C = Chemistry; Metallurgy, D = Textiles; paper, E = Fixed Constructing, F = Mechanical Engineering; Lighting; Heating; Weapons; Blasting Engines; Pumps, G = Physics, H = Electricity)"
-ipc_symbol_position,ipcs,Position,string,Y,"First or later position of symbols. The position of the first invention information classification can be recognized by this field. The letters ""F"" and ""L"" are used for the first and later position, respectively."
-ipc_version_indicator,ipcs,Version Indicator,date,N,The version of the IPC classification system
-ipc_total_num_inventors,ipcs,Total Number of Inventors,integer,Y,Total number of unique inventors on patents within an IPC class
-ipc_total_num_assignees,ipcs,Total Number of Assignees,integer,Y,Total number of unique assignees on patents within an IPC class
-ipc_main_group,ipcs,Main Group,string,Y,Subdivisions of the IPC subclass
-ipc_classification_data_source,ipcs,Classification Data Source,string,N,"“H” defining “Human - Generated”, “M” defining “Machine - Generated” and “G” defining “G enerated via Software”"
-ipc_class,ipcs,Class,string,Y,"Second hierarchial level of the IPC system, sections are subdivided into classes"
-ipc_action_date,ipcs,Action Date,date,N,Date an International Patent Classification (IPC) is issued for the patent
-ipc_last_seen_date,ipcs,Last Seen Date,date,Y,Grant date of the most recent patent in the database within a IPC group
-ipc_first_seen_date,ipcs,First Seen Date,date,Y,Grant date of the earliest patent in the database within a IPC group
-ipc_classification_value,ipcs,Classification Value,string,Y,“ I ” defining “invention information” or “N” defining “non - invention information”
-lawyer_sequence,lawyers,Sequence,int,Y,Order in which lawyer appears in patent file
-lawyer_organization,lawyers,Organization,string,Y,"Organization name, if lawyer is organization"
-lawyer_total_num_assignees,lawyers,Total Number of Assignees,integer,Y,Total number of unique assignees on patents within a given lawyer (as indicated by unique lawyer_id)
-lawyer_total_num_patents,lawyers,Total Number of Patents,integer,Y,Total number of patents in the database for a given lawyer (as indicated by unique lawyer_id)
-lawyer_total_num_inventors,lawyers,Total Number of Inventors,integer,Y,Total number of unique inventors on patents within a given lawyer (as indicated by unique lawyer_id)
-lawyer_last_seen_date,lawyers,Last Seen Date,date,Y,Most recent patent grant date for all the lawyer's patents in the database
-lawyer_first_seen_date,lawyers,First Seen Date,date,Y,Earliest patent grant date for all the lawyer's patents in the database
-lawyer_first_name,lawyers,First Name,string,Y,First name of lawyer
-lawyer_last_name,lawyers,Last Name,string,Y,Last name of lawyer
-lawyer_id,lawyers,ID,string,Y,Unique database lawyer ID  by disambiguation algorithm
-location_id,locations,Location ID,string,Y,Unique location ID generated by the disambiguation algorithm
-location_latitude,locations,Latitude,float,N,Latitude associated with a location_id
-location_longitude,locations,Longitude,float,N,Longitude associated with a location_id
-location_state_fips,locations,State FIPS code,string,Y,FIPS code of the inventor's state associated with their location_id on a given patent (only US)
-location_state,locations,State,string,Y,State assocaited with a location_id
-location_country,locations,Country,string,Y,Country associated with a location_id
-location_city,locations,City,string,Y,City associated with a location_id
-location_county_fips,locations,County FIPS code,string,Y,FIPS code of the inventor's county associated with their location_id on a given patent (only US)
-location_county,locations,County,string,Y,Inventor's county associated with their location_id on a given patent (only US)
-nber_subcategory_title,nbers,Subcategory Title,string,Y,Description of NBER subcategory
-nber_subcategory_id,nbers,Subcategory ID,string,Y,NBER subcategory ID (see nber_subcategory_title for details)
-nber_total_num_assignees,nbers,Total Number of Assignees,integer,Y,Total number of unique assignees on patents within a NBER subcategory
-nber_total_num_patents,nbers,Total Number of Patents,integer,Y,Total number of patents within a NBER subcategory
-nber_total_num_inventors,nbers,Total Number of Inventors,integer,Y,Total number of unique inventors on patents within a NBER subcategory
-nber_num_patents_for_inventor,nbers,Number of Patents for NBER Subcategory,integer,Y,Number of patents within a NBER subcategory for a given inventor
-nber_category_title,nbers,Category Title,string,Y,Description of NBER category
-nber_category_id,nbers,Category ID,string,Y,National Bureau of Economic Research (NBER) technology category ID (see nber_category_title for details)
-nber_last_seen_date,nbers,Last Seen Date,date,Y,Grant date of the most recent patent in the database within a NBER subcategory
-nber_first_seen_date,nbers,First Seen Date,date,Y,Grant date of the earliest patent in the database within a NBER subcategory
-patent_kind,patents,Kind,string,Y,World Intellectual Property Organization (WIPO) Standard ST.16 Patent Code (http://www.uspto.gov/learning-and-resources/support-centers/electronic-business-center/kind-codes-included-uspto-patent)
-patent_num_cited_by_us_patents,patents,Number Cited by US Patents,integer,Y,Number of times the patent was cited by other US patents
-patent_num_claims,patents,Number of Claims,integer,N,Number of claim statements on the patent
-patent_firstnamed_inventor_location_id,patents,First Named Inventor Location ID,string,Y,Unique database ID for the location of the first-named (i.e. first in the list) inventor on the patent
-patent_firstnamed_inventor_longitude,patents,First Named Inventor Longitude,float,N,Longitude of the location of the first-named (i.e. first in the list) inventor on the patent
-patent_firstnamed_inventor_state,patents,First Named Inventor State,string,Y,State of the location of the first-named (i.e. first in the list) inventor on the patent
-patent_num_combined_citations,patents,Number of Combined Citations,integer,Y,"Number of patents and applications cited by the selected patent. This is the sum of citations of US patents, foreign patents, and US applications"
+#inventor_first_seen_date,inventors,First Seen Date,date,Y,Earliest patent grant date for all the inventor's patents in the database
+#inventor_first_name,inventors,First Name,string,Y,First name of inventor
+#inventor_last_seen_date,inventors,Last Seen Date,date,Y,Most recent patent grant date for all the inventor's patents in the database
+#inventor_last_name,inventors,Last Name,string,Y,Last name of inventor
+#inventor_key_id,inventors,Inventor key id,string,N,Special identifier used as the default sort field for the inventor query. This field may be deprecated in a future version.
+#ipc_subgroup,ipcs,Subgroup,string,Y,Subdivisions of IPC main group
+#ipc_subclass,ipcs,Subclass,string,Y,Subdivisions IPC class
+#ipc_section,ipcs,Section,string,Y,"Highest hierarchical levels of the IPC corresponding to broad technical fields ( A = Human Necessitites, B = Performing Operations; Transporint, C = Chemistry; Metallurgy, D = Textiles; paper, E = Fixed Constructing, F = Mechanical Engineering; Lighting; Heating; Weapons; Blasting Engines; Pumps, G = Physics, H = Electricity)"
+#ipc_symbol_position,ipcs,Position,string,Y,"First or later position of symbols. The position of the first invention information classification can be recognized by this field. The letters ""F"" and ""L"" are used for the first and later position, respectively."
+#ipc_version_indicator,ipcs,Version Indicator,date,N,The version of the IPC classification system
+#ipc_total_num_inventors,ipcs,Total Number of Inventors,integer,Y,Total number of unique inventors on patents within an IPC class
+#ipc_total_num_assignees,ipcs,Total Number of Assignees,integer,Y,Total number of unique assignees on patents within an IPC class
+#ipc_main_group,ipcs,Main Group,string,Y,Subdivisions of the IPC subclass
+#ipc_classification_data_source,ipcs,Classification Data Source,string,N,"ï¿½Hï¿½ defining ï¿½Human - Generatedï¿½, ï¿½Mï¿½ defining ï¿½Machine - Generatedï¿½ and ï¿½Gï¿½ defining ï¿½G enerated via Softwareï¿½"
+#ipc_class,ipcs,Class,string,Y,"Second hierarchial level of the IPC system, sections are subdivided into classes"
+#ipc_action_date,ipcs,Action Date,date,N,Date an International Patent Classification (IPC) is issued for the patent
+#ipc_last_seen_date,ipcs,Last Seen Date,date,Y,Grant date of the most recent patent in the database within a IPC group
+#ipc_first_seen_date,ipcs,First Seen Date,date,Y,Grant date of the earliest patent in the database within a IPC group
+#ipc_classification_value,ipcs,Classification Value,string,Y,ï¿½ I ï¿½ defining ï¿½invention informationï¿½ or ï¿½Nï¿½ defining ï¿½non - invention informationï¿½
+#lawyer_sequence,lawyers,Sequence,int,Y,Order in which lawyer appears in patent file
+#lawyer_organization,lawyers,Organization,string,Y,"Organization name, if lawyer is organization"
+#lawyer_total_num_assignees,lawyers,Total Number of Assignees,integer,Y,Total number of unique assignees on patents within a given lawyer (as indicated by unique lawyer_id)
+#lawyer_total_num_patents,lawyers,Total Number of Patents,integer,Y,Total number of patents in the database for a given lawyer (as indicated by unique lawyer_id)
+#lawyer_total_num_inventors,lawyers,Total Number of Inventors,integer,Y,Total number of unique inventors on patents within a given lawyer (as indicated by unique lawyer_id)
+#lawyer_last_seen_date,lawyers,Last Seen Date,date,Y,Most recent patent grant date for all the lawyer's patents in the database
+#lawyer_first_seen_date,lawyers,First Seen Date,date,Y,Earliest patent grant date for all the lawyer's patents in the database
+#lawyer_first_name,lawyers,First Name,string,Y,First name of lawyer
+#lawyer_last_name,lawyers,Last Name,string,Y,Last name of lawyer
+#lawyer_id,lawyers,ID,string,Y,Unique database lawyer ID  by disambiguation algorithm
+#location_id,locations,Location ID,string,Y,Unique location ID generated by the disambiguation algorithm
+#location_latitude,locations,Latitude,float,N,Latitude associated with a location_id
+#location_longitude,locations,Longitude,float,N,Longitude associated with a location_id
+#location_state_fips,locations,State FIPS code,string,Y,FIPS code of the inventor's state associated with their location_id on a given patent (only US)
+#location_state,locations,State,string,Y,State assocaited with a location_id
+#location_country,locations,Country,string,Y,Country associated with a location_id
+#location_city,locations,City,string,Y,City associated with a location_id
+#location_county_fips,locations,County FIPS code,string,Y,FIPS code of the inventor's county associated with their location_id on a given patent (only US)
+#location_county,locations,County,string,Y,Inventor's county associated with their location_id on a given patent (only US)
+#nber_subcategory_title,nbers,Subcategory Title,string,Y,Description of NBER subcategory
+#nber_subcategory_id,nbers,Subcategory ID,string,Y,NBER subcategory ID (see nber_subcategory_title for details)
+#nber_total_num_assignees,nbers,Total Number of Assignees,integer,Y,Total number of unique assignees on patents within a NBER subcategory
+#nber_total_num_patents,nbers,Total Number of Patents,integer,Y,Total number of patents within a NBER subcategory
+#nber_total_num_inventors,nbers,Total Number of Inventors,integer,Y,Total number of unique inventors on patents within a NBER subcategory
+#nber_num_patents_for_inventor,nbers,Number of Patents for NBER Subcategory,integer,Y,Number of patents within a NBER subcategory for a given inventor
+#nber_category_title,nbers,Category Title,string,Y,Description of NBER category
+#nber_category_id,nbers,Category ID,string,Y,National Bureau of Economic Research (NBER) technology category ID (see nber_category_title for details)
+#nber_last_seen_date,nbers,Last Seen Date,date,Y,Grant date of the most recent patent in the database within a NBER subcategory
+#nber_first_seen_date,nbers,First Seen Date,date,Y,Grant date of the earliest patent in the database within a NBER subcategory
+#patent_kind,patents,Kind,string,Y,World Intellectual Property Organization (WIPO) Standard ST.16 Patent Code (http://www.uspto.gov/learning-and-resources/support-centers/electronic-business-center/kind-codes-included-uspto-patent)
+#patent_num_cited_by_us_patents,patents,Number Cited by US Patents,integer,Y,Number of times the patent was cited by other US patents
+#patent_num_claims,patents,Number of Claims,integer,N,Number of claim statements on the patent
+#patent_firstnamed_inventor_location_id,patents,First Named Inventor Location ID,string,Y,Unique database ID for the location of the first-named (i.e. first in the list) inventor on the patent
+#patent_firstnamed_inventor_longitude,patents,First Named Inventor Longitude,float,N,Longitude of the location of the first-named (i.e. first in the list) inventor on the patent
+#patent_firstnamed_inventor_state,patents,First Named Inventor State,string,Y,State of the location of the first-named (i.e. first in the list) inventor on the patent
+#patent_num_combined_citations,patents,Number of Combined Citations,integer,Y,"Number of patents and applications cited by the selected patent. This is the sum of citations of US patents, foreign patents, and US applications"
 patent_number,patents,Number,string,Y,"US Patent number, as assigned by USPTO"
 patent_title,patents,Title,full text,Y,Title of the  patent
-patent_type,patents,Type,string,Y,"Category of patent. There are 6 possible type: ""Defensive Publication"" - 509, ""Design"" - 474736, ""Plant"" - 21052, ""Reissue"" - 16416, ""Statutory Invention Registration"" - 2254, ""Utility"" - 4910906."
-patent_num_foreign_citations,patents,Number of Foreign Citations,integer,Y,Number of foreign patents cited by the selected patent
-patent_num_us_application_citations,patents,Number of US Application Citations,integer,Y,Number of US applications cited by the selected patent
-patent_num_us_patent_citations,patents,Number of US Patent Citations,integer,Y,Number of US patents cited by the selected patent
-patent_firstnamed_inventor_latitude,patents,First Named Inventor Latitude,float,N,Latitude of the location of the first-named (i.e. first in the list) inventor on the patent
-patent_firstnamed_assignee_city,patents,First Named Assignee City,string,Y,City of the location of the first-named (i.e. first in the list) assignee on the patent
-patent_firstnamed_assignee_country,patents,First Named Assignee Country,string,Y,Country of the location of the first-named (i.e. first in the list) assignee on the patent
-patent_firstnamed_assignee_id,patents,First Named Assignee ID,string,Y,Assignee ID (assignee_id) for the first-named (i.e. first in the list) assignee on the patent
-detail_desc_length,patents,Length of the detailed description text,integer,Y,The character count (length) of the detailed description text on a given patent
+#patent_type,patents,Type,string,Y,"Category of patent. There are 6 possible type: ""Defensive Publication"" - 509, ""Design"" - 474736, ""Plant"" - 21052, ""Reissue"" - 16416, ""Statutory Invention Registration"" - 2254, ""Utility"" - 4910906."
+#patent_num_foreign_citations,patents,Number of Foreign Citations,integer,Y,Number of foreign patents cited by the selected patent
+#patent_num_us_application_citations,patents,Number of US Application Citations,integer,Y,Number of US applications cited by the selected patent
+#patent_num_us_patent_citations,patents,Number of US Patent Citations,integer,Y,Number of US patents cited by the selected patent
+#patent_firstnamed_inventor_latitude,patents,First Named Inventor Latitude,float,N,Latitude of the location of the first-named (i.e. first in the list) inventor on the patent
+#patent_firstnamed_assignee_city,patents,First Named Assignee City,string,Y,City of the location of the first-named (i.e. first in the list) assignee on the patent
+#patent_firstnamed_assignee_country,patents,First Named Assignee Country,string,Y,Country of the location of the first-named (i.e. first in the list) assignee on the patent
+#patent_firstnamed_assignee_id,patents,First Named Assignee ID,string,Y,Assignee ID (assignee_id) for the first-named (i.e. first in the list) assignee on the patent
+#detail_desc_length,patents,Length of the detailed description text,integer,Y,The character count (length) of the detailed description text on a given patent
 patent_abstract,patents,Abstract,full text,N,Abstract of the patent
 patent_date,patents,Grant Date,date,Y,Date patent was granted
-patent_firstnamed_assignee_latitude,patents,First Named Assignee Latitude,float,N,Latitude of the location of the first-named (i.e. first in the list) assignee on the patent
-patent_firstnamed_inventor_city,patents,First Named Inventor City,string,Y,City of the location of the the first-named (i.e. first in the list) inventor on the patent
-patent_firstnamed_inventor_country,patents,First Named Inventor Country,string,Y,Country of the location of the first-named (i.e. first in the list) inventor on the patent
-patent_firstnamed_inventor_id,patents,First Named Inventor ID,string,Y,Inventor ID (inventor_id) for the first-named (i.e. first in the list) inventor on the patent
-patent_firstnamed_assignee_location_id,patents,First Named Assignee Location ID,string,Y,Unique database ID for the location of the first-named (i.e. first in the list) assignee on the patent
-patent_firstnamed_assignee_longitude,patents,First Named Assignee Longitude,float,N,Longitude of the location of the first-named (i.e. first in the list) assignee on the patent
-patent_firstnamed_assignee_state,patents,First Named Assignee State,string,Y,State of the location of the the first-named (i.e. first in the list) assignee on the patent
-pct_docnumber,pct_data,Number,string,Y,ID of the PCT document
-pct_doctype,pct_data,Type,string,Y,"Type of the PCT document (wo_grant, pct_application)"
-pct_kind,pct_data,Kind,string,Y,"Kind of PCT application (numerical for filed, alphabetical for published)"
-pct_102_date,pct_data,Date,date,Y,35 U.S.C. § 102(e) date for PCT applications
-pct_371_date,pct_data,Date,date,Y,"PCT Section 371(c)(1)(2)(4)date, date when PCT application was filed"
-pct_date,pct_data,Date,date,Y,Date when PCT document was filed or published
-rawinventor_last_name,rawinventors,Last Name,string,Y,Inventor last name before disambiguation as listed on the selected patent
-rawinventor_first_name,rawinventors,First Name,string,Y,Inventor first name before disambiguation as listed on the selected patent
-uspc_subclass_title,uspcs,Subclass Title,string,Y,Description of USPC subclass
-uspc_subclass_id,uspcs,Subclass ID,string,Y,ID of USPC subclass
-uspc_total_num_assignees,uspcs,Total Number of Assignees,integer,Y,Total number of unique assignees on patents within a USPC mainclass
-uspc_total_num_patents,uspcs,Total Number of Patents,integer,Y,Total number of patents within a USPC mainclass
-uspc_total_num_inventors,uspcs,Total Number of Inventors,integer,Y,Total number of unique inventors on patents  within a USPC mainclass
-uspc_sequence,uspcs,Sequence,integer,Y,Order of the USPC classification in the list of classifications for the selected patent
-uspc_last_seen_date,uspcs,Last Seen Date,date,Y,Grant date of the most recent patent in the database within a USPC mainclass
-uspc_first_seen_date,uspcs,First Seen Date,date,Y,Grant date of the earliest patent in the database within a USPC mainclass
-uspc_mainclass_id,uspcs,Mainclass ID,string,Y,ID of the USPC mainclass
-uspc_num_patents_for_inventor,uspcs,Number of Patents for Inventor,integer,Y,Total number of unique patents within a USPC mainclass with a given inventor
-uspc_mainclass_title,uspcs,Mainclass Title,string,Y,Description of USPC mainclass
-wipo_sector_title,wipos,Technology Sector Title,string,Y,Description of WIPO technology sector
-wipo_sequence,wipos,Sequence,integer,Y,Order of the WIPO technology field in the list of technology fields for the selected patent
-wipo_field_id,wipos,WIPO Technology Field ID,integer,Y,ID of WIPO technology field
-wipo_field_title,wipos,Technology Field Title,string,Y,Description of WIPO technology field
+#patent_firstnamed_assignee_latitude,patents,First Named Assignee Latitude,float,N,Latitude of the location of the first-named (i.e. first in the list) assignee on the patent
+#patent_firstnamed_inventor_city,patents,First Named Inventor City,string,Y,City of the location of the the first-named (i.e. first in the list) inventor on the patent
+#patent_firstnamed_inventor_country,patents,First Named Inventor Country,string,Y,Country of the location of the first-named (i.e. first in the list) inventor on the patent
+#patent_firstnamed_inventor_id,patents,First Named Inventor ID,string,Y,Inventor ID (inventor_id) for the first-named (i.e. first in the list) inventor on the patent
+#patent_firstnamed_assignee_location_id,patents,First Named Assignee Location ID,string,Y,Unique database ID for the location of the first-named (i.e. first in the list) assignee on the patent
+#patent_firstnamed_assignee_longitude,patents,First Named Assignee Longitude,float,N,Longitude of the location of the first-named (i.e. first in the list) assignee on the patent
+#patent_firstnamed_assignee_state,patents,First Named Assignee State,string,Y,State of the location of the the first-named (i.e. first in the list) assignee on the patent
+#pct_docnumber,pct_data,Number,string,Y,ID of the PCT document
+#pct_doctype,pct_data,Type,string,Y,"Type of the PCT document (wo_grant, pct_application)"
+#pct_kind,pct_data,Kind,string,Y,"Kind of PCT application (numerical for filed, alphabetical for published)"
+#pct_102_date,pct_data,Date,date,Y,35 U.S.C. ï¿½ 102(e) date for PCT applications
+#pct_371_date,pct_data,Date,date,Y,"PCT Section 371(c)(1)(2)(4)date, date when PCT application was filed"
+#pct_date,pct_data,Date,date,Y,Date when PCT document was filed or published
+#rawinventor_last_name,rawinventors,Last Name,string,Y,Inventor last name before disambiguation as listed on the selected patent
+#rawinventor_first_name,rawinventors,First Name,string,Y,Inventor first name before disambiguation as listed on the selected patent
+#uspc_subclass_title,uspcs,Subclass Title,string,Y,Description of USPC subclass
+#uspc_subclass_id,uspcs,Subclass ID,string,Y,ID of USPC subclass
+#uspc_total_num_assignees,uspcs,Total Number of Assignees,integer,Y,Total number of unique assignees on patents within a USPC mainclass
+#uspc_total_num_patents,uspcs,Total Number of Patents,integer,Y,Total number of patents within a USPC mainclass
+#uspc_total_num_inventors,uspcs,Total Number of Inventors,integer,Y,Total number of unique inventors on patents  within a USPC mainclass
+#uspc_sequence,uspcs,Sequence,integer,Y,Order of the USPC classification in the list of classifications for the selected patent
+#uspc_last_seen_date,uspcs,Last Seen Date,date,Y,Grant date of the most recent patent in the database within a USPC mainclass
+#uspc_first_seen_date,uspcs,First Seen Date,date,Y,Grant date of the earliest patent in the database within a USPC mainclass
+#uspc_mainclass_id,uspcs,Mainclass ID,string,Y,ID of the USPC mainclass
+#uspc_num_patents_for_inventor,uspcs,Number of Patents for Inventor,integer,Y,Total number of unique patents within a USPC mainclass with a given inventor
+#uspc_mainclass_title,uspcs,Mainclass Title,string,Y,Description of USPC mainclass
+#wipo_sector_title,wipos,Technology Sector Title,string,Y,Description of WIPO technology sector
+#wipo_sequence,wipos,Sequence,integer,Y,Order of the WIPO technology field in the list of technology fields for the selected patent
+#wipo_field_id,wipos,WIPO Technology Field ID,integer,Y,ID of WIPO technology field
+#wipo_field_title,wipos,Technology Field Title,string,Y,Description of WIPO technology field
 year_num_patents_for_inventor,years,Number of Patents for Inventor,integer,N,Number of patents for an inventor for a given year
 year_id,years,ID,integer,Y,Year
