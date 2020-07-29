@@ -2,148 +2,166 @@
 (function () {
   "use strict";
 
-
-  let csvResult = []; let obj = []; let usedColumns = []; let tableList = []; let tables = [];
-//////////////////////////////////////////////////////////////////////////////
-// End point configuration
-  const endpointConfig = {
-    inventors: {fileName:"endpoints/inventors.csv", keyId:"inventor_id", group:"inventors"},
-    patents: {fileName:"endpoints/patents.csv", keyId:"patents_id", group:"patents"},
-    locations: {fileName:"endpoints/locations.csv", keyId:"locations_id", group:"locations"}
-  }
-  const selectedEndpoint = endpointConfig.inventors; 
-
+  let myConnector = tableau.makeConnector(),csvResult = [],usedColumns = [],tableList = [],tables = [],userObj=[], useLocalFile = false;
   
+  var objectSet = {
+    dataTypes: {
+      "integer": tableau.dataTypeEnum.int,
+      "int": tableau.dataTypeEnum.int,
+      "float": tableau.dataTypeEnum.float,
+      "string": tableau.dataTypeEnum.string,
+      "full text": tableau.dataTypeEnum.string,
+      "date": tableau.dataTypeEnum.date
+    },
+    full: [],
+    filtered: [],
+    newHeaders: { "Skip": "skip", "API Field Name": "id", "Group": "group", "Common Name": "alias", "Type": "dataType", "Query": "query", "Description": "description" },
+    filteredMot: (function () {
+      let filtered = this.full.filter(fullObj => (fullObj.skip !== "#"));
+      filtered.forEach(a => a.dataType = this.dataTypes[a.dataType]);
+      this.tupe = filtered;
+      return filtered
+    }),
+    tableList : function() {return [...new Set(objectSet.filteredMot().map(i => `${i.group}`))]},
+    usedColumns :function() { return [...new Set(objectSet.filtered.map(i => `"${i.id}"`))]},
+    filterByGroup : function (obj, groupName) {
+      return obj.filter(obj => {
+        return obj.group === groupName || obj.id === selectedEndpoint.keyId;
+      });
+    },
+    tables: function (){ 
+      let tempTables = [];
+      this.tableList().forEach(element => tempTables.push({
+        id: element,
+        alias: element,
+        columns: objectSet.filterByGroup(objectSet.filteredMot(), element)
+      }))
+      return tempTables;
+    }
+};
+  
+  //////////////////////////////////////////////////////////////////////////////
+  // End point configuration
+  const endpointConfig = {
+    inventors: {
+      fileName: "inventors",
+      keyId: "inventor_id",
+      group: "inventors"
+    },
+    patents: {
+      fileName: "patent",
+      keyId: "patent_number",
+      group: "patents"
+    },
+    locations: {
+      fileName: "locations",
+      keyId: "location_id",
+      group: "locations"
+    },
+    cpc: {
+      fileName: "cpc_subsection",
+      keyId: "cpc_group_id",
+      group: "cpc_subgroups"
+    },
+    assignees: {
+      fileName: "assignee",
+      keyId: "assignee_id",
+      group: "assignees"
+    },
+    nber: {
+      fileName: "nber_subcat",
+      keyId: "nber_category_id",
+      group: "nber_subcategories"
+    }
+  };
+  let selectedEndpoint = (endpointConfig[window.location.hash.split("#")[1]] ? endpointConfig[window.location.hash.split("#")[1]] : endpointConfig.inventors);
+
   //////////////////////////////////////////////////////////////////////////////////
-  // Get cluster codes from csv file and create cluster results NOT DOING ANYTHING NOW
+  // Get cluster codes from server csv file and create cluster results NOT DOING ANYTHING NOW
   $.get("endpoints/clusterCodes.csv", (data) => {
     var csvdata = Papa.parse(data);
     csvResult = new Map(csvdata.data.map((i) => [i[0], i[1]]));
   });
 
-////////////////////////////////////////////////////////////////////////////////////
-// Get the data endpoint data from csv and create JSON name obj  < CHANGE THIS VARIABLE
-  $.get(selectedEndpoint.fileName, (data) => {
-    var csvdata = Papa.parse(data, {
-      skipEmptyLines: true,      
-      comments: "#"
-    });
-    obj = csvdata.data.slice(1).map(([id, group, alias, dataType, n, description]) => {
-      return (
-        { id, group, alias, dataType, description })
-    });
-////////////////////////////////////////////////////////////////////////////////////
-// Creates arrays for the columns and the tables (groups) 
-    usedColumns = [...new Set(obj.map(i => `"${i.id}"`))];
-    tableList = [...new Set(obj.map(i => `${i.group}`))];
-
-////////////////////////////////////////////////////////////////////////////////////
-// Deduplicates the table names (groups) 
-  function filterByGroup(obj, groupName) {
-    return obj.filter(obj => {
-      return obj.group === groupName || obj.id === selectedEndpoint.keyId;
-    });
-  }
-
-  ////////////////////////////////////////////////////////////////////////////////
-  // Changes the data type in each row from the USPTO type to the tableau object 
-    obj.forEach((a) => {
-      switch (a.dataType) {
-        case "int":
-          return a.dataType = tableau.dataTypeEnum.int
-        case "string":
-          return a.dataType = tableau.dataTypeEnum.string
-        case "full text":
-          return a.dataType = tableau.dataTypeEnum.string
-        case "date":
-          return a.dataType = tableau.dataTypeEnum.date
-        default:
-          return a.dataType = tableau.dataTypeEnum.string
+  ////////////////////////////////////////////////////////////////////////////////////
+  // Get the data endpoint data from csv and create JSON name obj  < CHANGE THIS VARIABLE
+  $.get(`endpoints/${selectedEndpoint.fileName}.csv`, (data) => {
+    Papa.parse(data, {
+      skipEmptyLines: true,
+      header: true,
+      transformHeader:function(h) {
+        return objectSet.newHeaders[h]
+      }, 
+      complete: function(results) {
+        objectSet.full = results.data;
       }
-    }
-    );
-////////////////////////////////////////////////////////////////////////////////
-// Creates the Tableau Tables list
-    tableList.forEach(element => tables.push({ id: element, alias: element, columns: filterByGroup(obj, element) }));
-
-/////////////////////////////////////////////////////////////////////////////////
-// Modify the HTML with data from the this script
-    var innerHtml = "";
-    obj.forEach((a) => {
-      innerHtml += `<option value='${a.id}'>${a.id}</option>`;
-      console.log(innerHtml)
     });
-    document.getElementById("filter-key").innerHTML = innerHtml;
-    document.getElementById("sort-key").innerHTML = innerHtml;
-    document.getElementById("sort-key").innerHTML = innerHtml;
 
-    document.getElementById("filter-key").childNodes.forEach(s => {
-         if (s.value === "inventor_lastknown_city"){
-          s.setAttribute('selected',true);; //attr('selected', true);//alert('is htere'+s);
-       } });
+    ////////////////////////////////////////////////////////////////////////////////
+    // Changes the data type in each row from the USPTO type to the tableau object 
+    $("#csv-file").change(handleFileSelect);
 
+    insertHTML(objectSet.filteredMot(), objectSet.full, selectedEndpoint, endpointConfig);
+  });
 
-      })
-
-
- 
-
-  var myConnector = tableau.makeConnector();
+  //////////////////////////////////////////////////////////////////////////////////
+  // GET A CSV FROM THE USER
+  var data;
+  function handleFileSelect(evt) {
+    var file = evt.target.files[0];    
+    Papa.parse(file, {
+      header: true,
+      transformHeader:function(h) {
+        return objectSet.newHeaders[h]
+      },
+      complete: function(results) {
+        document.getElementById("usptoRows").innerHTML = ""
+        objectSet.full = results.data;
+        objectSet.full.forEach((a, i) => {          
+          document.getElementById("usptoRows").innerHTML += `<tr><th scope="row">${checkBox(a.skip)}</th><td>${a.id}<td>${a.description}</td></tr>`;
+        });
+        
+        myConnector.getSchema = function (schemaCallback) {
+          //appendRows(objectSet.tables())
+          schemaCallback(objectSet.tables());
+        };
+      }
+    });    
+  };
 
   myConnector.getSchema = function (schemaCallback) {
-    schemaCallback(tables);
+    schemaCallback(objectSet.tables());
   };
-  myConnector.getData = function (table, doneCallback) {
 
+
+  myConnector.getData = function (table, doneCallback) {
+    
+     ////////////////////////////////////////////////////////////////////////////////////
+    // Creates arrays for the columns and the tables (groups) 
+    let usedColumns = objectSet.usedColumns();
+    
     var queryObj = JSON.parse(tableau.connectionData),
       filter = queryObj.customFilter || '"' + queryObj.filterKey + '":"' + queryObj.filterValue + '"',
-      finalURL = `https://www.patentsview.org/api/${selectedEndpoint.group}/query?
-      q={${filter}}
-      &o={"page":${queryObj.page},"per_page":${queryObj.per_page}}
-      &f=[${[...usedColumns]}]`
-      if (queryObj.sortValue !== "false") {finalURL += `&s=[{"${queryObj.sortKey}":"${queryObj.sortValue}"}]`};
+      finalURL = `https://www.patentsview.org/api/${selectedEndpoint.group}/query?q={${filter}}&o={"page":${queryObj.page},"per_page":${queryObj.per_page}}&f=[${[...usedColumns]}]`
+    if (queryObj.sortValue !== "false") {
+      finalURL += `&s=[{"${queryObj.sortKey}":"${queryObj.sortValue}"}]`
+    };
 
-      // inventors: {fileName:"endpoints/inventors.csv", keyId:"inventor_id", group:"inventors"},
-      // patents: {fileName:"endpoints/patents.csv", keyId:"patents_id", group:"patents"},
 
-//////////////////////////////////////////////////////////////////////
-// Retreve data from csv
-      $.getJSON(finalURL, function (resp) {
-      var inventors = resp.inventors,
-        tableData = [],
-        subTable = function (subTableValues, main_table) {
-          try {
-            main_table[subTableValues].forEach(function (values) {
-              var value = values;
-              value.inventor_id = main_table.inventor_id;
-              tableData.push(value);
-            });
-          } catch (err) {
-            tableau.log(err);
-          }
-        };
-      inventors.forEach(function (inventors) {
-        if (table.tableInfo.id === "inventors") {
-          tableData.push(inventors);
-        } else if (table.tableInfo.id !== "ipcsXX") {
-          subTable(table.tableInfo.id, inventors);
-        }
-
-      });
-      table.appendRows(tableData);
+    //////////////////////////////////////////////////////////////////////
+    // Retreve data from url
+    $.getJSON(encodeURI(finalURL), function (resp) {
+console.dir(table)
+      prepareTables(resp, selectedEndpoint, table);
       doneCallback();
     });
-
-
-  }; 
-
-
-
+  };
 
   tableau.registerConnector(myConnector);
   $(document).ready(function () {
-// ////////////////////////////////////////////////////
-// Get query values from html on submit button click
+
+    // ////////////////////////////////////////////////////
+    // Get query values from html on submit button click
     $("#submitButton").click(function () {
       const queryObj = {
         per_page: $('#per-page').val(),
@@ -156,8 +174,72 @@
       };
       tableau.connectionData = JSON.stringify(queryObj);
       tableau.connectionName = "Inventor Feed";
-      tableau.submit();
+      tableau.submit(); 
     });
   });
+
+    function checkBox(a) {
+      return `<div class="form-check">
+        <input class="form-check-input" type="checkbox" ${a ? "" : "checked"} value="${a ? "" : "checked"}" id="defaultCheck1">
+      </div>`
+    }
+
+
+  function insertHTML(obj, fullObj, selectedEndpoint, endpointConfig) {
+    /////////////////////////////////////////////////////////////////////////////////
+    // Modify the HTML with data from the this script
+    var innerHtml = "",
+      innerTableHtml = "";
+    obj.forEach((a) => {innerHtml += `<option value='${a.id}'>${a.id}</option>`;});
+
+    $("#dummyButton").click(function () {
+      fullObj[0].skip = "";
+      objectSet.filtered.push(fullObj[0]);
+      console.dir(objectSet.filtered);
+    });
+
+    fullObj.forEach((a, i) => {
+      document.getElementById("usptoRows").innerHTML += `<tr><th scope="row">${checkBox(a.skip)}</th><td>${a.id}<td>${a.description}</td></tr>`;
+    });
+    document.getElementById("filter-key").innerHTML = innerHtml;
+    document.getElementById("sort-key").innerHTML = innerHtml;
+    document.getElementById("sort-key").innerHTML = innerHtml;
+    document.getElementById("title").innerHTML = `USPTO ${selectedEndpoint.group.toUpperCase()[0] + selectedEndpoint.group.substr(1)} Endpoint`;
+    document.getElementById("description").innerHTML = `This connector allows you to load data from the USPTO PatentsView API, Specifically the Inventors Endpoint as documented at <a href="http://www.patentsview.org/api/${selectedEndpoint.fileName}.html">http://www.patentsview.org/api/${selectedEndpoint.fileName}.html</a>.\n`;
+    document.getElementById("description").innerHTML += `Other possible endpoints are available at #${Object.keys(endpointConfig).join(", #")}`;
+    document.getElementById("filter-key").childNodes.forEach(s => {
+      if (s.value === "inventor_lastknown_city") {s.setAttribute('selected', true);}
+    });
+
+  }
+
+  function prepareTables(resp, selectedEndpoint,table) {
+    var keyTable = resp[selectedEndpoint.group], 
+      tableData = [],
+      subTable = function (subTableValues, main_table) {
+        try {
+          main_table[subTableValues].forEach(function (values) {
+            var value = values;
+            value[selectedEndpoint.keyId] = main_table[selectedEndpoint.keyId];
+            tableData.push(value);
+          });
+        }
+        catch (err) {
+          tableau.log(err);
+        }
+      };
+    keyTable.forEach(function (inventors) {
+      if (table.tableInfo.id === selectedEndpoint.group) {
+        tableData.push(inventors);
+      }
+      else if (table.tableInfo.id !== "ipcsXX") {
+        subTable(table.tableInfo.id, inventors);
+      }
+  
+    });
+    table.appendRows(tableData);
+  }
+  
 }());
+
 
