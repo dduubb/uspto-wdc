@@ -1,0 +1,30 @@
+{
+  "name": "wdc",
+  "version": "1.0.0",
+  "main": "loadCsv.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "dale",
+  "license": "MIT",
+  "dependencies": {
+    "papaparse": "^5.2.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dduubb/uspto-wdc.git"
+  },
+  "keywords": [
+    "USPTO",
+    "Tableau",
+    "Web",
+    "Data",
+    "Collector"
+  ],
+  "bugs": {
+    "url": "https://github.com/dduubb/uspto-wdc/issues"
+  },
+  "homepage": "https://github.com/dduubb/uspto-wdc#readme",
+  "description": ""
+}
