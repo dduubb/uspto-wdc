@@ -1,32 +1,29 @@
 /*global tableau, $*/
-import { loadCSV } from "./loadCsv.js"
-import { endpointConfig } from "./endpointConfig.js"
-import EndpointProto from "./Schema.js"
-import { layout } from "./layout.js"
+import { loadCSV } from "./js/loadCsv.js"
+import { endpointConfig } from "./js/endpointConfig.js"
+import EndpointProto from "./js/Schema.js"
+import { layout } from "./js/layout.js"
 const urlHash = (window.location.hash.split("#")[1]) ? window.location.hash.split("#")[1] : "inventors";
 const myEndpoint = endpointConfig[urlHash];
 let myConnector = {}
-const url = `endpoints/${myEndpoint['filename']}.csv`
-let usedColumns, myTable, endpointInst, tables
+const url = `../endpoints/${myEndpoint['filename']}.csv`
+console.log(url)
+let usedColumns, endpointInst, tables
 init(url)
 
 async function init(url) {
     let dataObj = await loadCSV(url)
     endpointInst = new EndpointProto(dataObj, myEndpoint['filename']);
-    window.test = endpointInst
     layout.renderTable(endpointInst.full)
     layout.addOptions(endpointInst.filtered, "inventor_lastknown_city")
     layout.events(myEndpoint['title'], myEndpoint['docs'])
     usedColumns = endpointInst.usedColumns
-    myTable = endpointInst.tables,
-        tables = endpointInst.tables
-
+    tables = endpointInst.tables
 }
 
 (() => {
     myConnector = tableau.makeConnector();
     myConnector.getSchema = (schemaCallback) => {
-        //console.log("TABLE------", tables)
         schemaCallback(tables)
     };
 
@@ -53,7 +50,7 @@ submitButton.addEventListener('click', () => {
         
         schemaCallback(endpointInst.tables)
     };
-    let tcd = {
+    let TCD = {
         page: document.getElementById('page').value,
         per_page: document.getElementById('per-page').value,
         page: document.getElementById('page').value,
@@ -65,7 +62,7 @@ submitButton.addEventListener('click', () => {
         connectionData: usedColumns
     }
     tableau.connectionName = "Patent Connector";
-    tableau.connectionData = JSON.stringify(tcd);
+    tableau.connectionData = JSON.stringify(TCD);
     tableau.submit();
 });
 
