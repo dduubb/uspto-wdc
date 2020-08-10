@@ -6,7 +6,7 @@ import { layout } from "./js/layout.js"
 const urlHash = (window.location.hash.split("#")[1]) ? window.location.hash.split("#")[1] : "inventors";
 const myEndpoint = endpointConfig[urlHash];
 let myConnector = {}
-const url = `../endpoints/${myEndpoint['filename']}.csv`
+const url = `./endpoints/${myEndpoint['filename']}.csv`
 console.log(url)
 let usedColumns, endpointInst, tables
 init(url)
