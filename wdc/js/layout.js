@@ -19,8 +19,6 @@ export const layout = {
             document.getElementById("usptoRows").innerHTML += `<tr><th scope="row">${this.checkBox(a.skip, i)}</th><td>${a.id}<td>${a.description}</td></tr>`
         })
         document.querySelectorAll("#default-check").forEach((e) => e.addEventListener("click", (e) => {
-            console.log(full[e.target.value].skip)
-            console.log(full[e.target.value].skip)
             full[e.target.value].skip = !full[e.target.value].skip
         }))
     },
