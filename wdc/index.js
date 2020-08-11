@@ -7,7 +7,13 @@ const urlHash = (window.location.hash.split("#")[1]) ? window.location.hash.spli
 const myEndpoint = endpointConfig[urlHash]
 const url = `./endpoints/${myEndpoint['filename']}.csv`
 let myConnector = {}
+<<<<<<< HEAD
 let usedColumns, endpointInst
+=======
+const url = `./endpoints/${myEndpoint['filename']}.csv`
+console.log(url)
+let usedColumns, endpointInst, tables
+>>>>>>> 75296768ffaf42b7989be419b2d486543e353658
 init(url)
 
 async function init(url) {
