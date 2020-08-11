@@ -3,8 +3,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
     <script src="https://connectors.tableau.com/libs/tableauwdc-2.1.latest.js" type="text/javascript"></script>
     <script type="text/javascript" src="./node_modules/papaparse/papaparse.min.js"></script>
     <script type="module" src="./index.js"></script>
@@ -69,7 +68,7 @@
                     <div class="form-row">
                         <div class="form-group col-sm-12">
                             <label class="control-label" for="sort-key">Custom Filter: Like </label><a href="#"
-                                onclick="autoFill();">
+                                onclick="this.parentElement.querySelector('#custom-filter').value='&quot;_or&quot;:[{&quot;inventor_lastknown_state&quot;:&quot;KS&quot;},{&quot;inventor_lastknown_state&quot;:&quot;MO&quot;}]'">
                                 "_or":[{"inventor_lastknown_state":"KS"},{"inventor_lastknown_state":"MO"}]</a>
                             <input class="form-control" id="custom-filter">
                             </input>
@@ -94,7 +93,7 @@
                     
             <div class="row">
                 <div class="mx-auto">
-                    <button type="button" id="submitButton" class="btn btn-success" >Get
+                    <button type="button" id="submitButton" class="btn btn-success" disabled >Get
                         Inventor Data!</button>
                 </div>
             </div>
@@ -119,5 +118,4 @@
         </div>
     </div>
 </body>
-
 </html>
