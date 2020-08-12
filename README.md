@@ -2,7 +2,7 @@
 Web data connector for USPTO PatentsWeb API
 This Repository contains a [Tableau Data
 Connector](https://tableau.github.io/webdataconnector/) (WDC) for [USPTO
-PatentsView](https://www.patentsview.org/api/doc.html) site. PatentsView.org The
+PatentsView.org](https://www.patentsview.org/api/doc.html) site. The
 WDC allows you to connect to 4 of the 7 API endpoints you can access each of
 these with the this WDC by adding a hash for each endpoint [patents, inventors,
 assignees, locations].
