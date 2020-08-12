@@ -8,11 +8,6 @@ these with the this WDC by adding a hash for each endpoint [patents, inventors,
 assignees, locations].
 
 Inventors Endpoint https://dduubb.github.io/uspto-wdc/wdc/uspto-wdc.html
-
 Patents Endpoint https://dduubb.github.io/uspto-wdc/wdc/uspto-wdc.html#patents
-
-Assignees Endpoint
-https://dduubb.github.io/uspto-wdc/wdc/uspto-wdc.html#assignees
-
-Locations Endpoint https://dduubb.github.io/uspto-wdc/wdc/uspto-wdc.html#
-locations
+Assignees Endpoint https://dduubb.github.io/uspto-wdc/wdc/uspto-wdc.html#assignees
+Locations Endpoint https://dduubb.github.io/uspto-wdc/wdc/uspto-wdc.html#locations
