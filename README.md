@@ -9,10 +9,10 @@ assignees, locations].
 
 Inventors Endpoint https://dduubb.github.io/uspto-wdc/wdc/uspto-wdc.html
 
-Patents Endpoint https://dduubb.github.io/uspto-wdc/wdc/uspto-wdc.html\#patents
+Patents Endpoint https://dduubb.github.io/uspto-wdc/wdc/uspto-wdc.html#patents
 
 Assignees Endpoint
-https://dduubb.github.io/uspto-wdc/wdc/uspto-wdc.html\#assignees
+https://dduubb.github.io/uspto-wdc/wdc/uspto-wdc.html#assignees
 
-Locations Endpoint https://dduubb.github.io/uspto-wdc/wdc/uspto-wdc.html\#
+Locations Endpoint https://dduubb.github.io/uspto-wdc/wdc/uspto-wdc.html#
 locations
