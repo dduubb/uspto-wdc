@@ -12,9 +12,10 @@ init(url)
 
 async function init(url) {
     let dataObj = await loadCSV(url)
+    dataObj = tableau.phase === "interactive" ? dataObj : JSON.parse(tableau.connectionData).columns 
     endpointInst = new EndpointProto(dataObj, myEndpoint['filename'])
     layout.renderTable(endpointInst.full)
-    layout.addOptions(endpointInst.filtered, "inventor_lastknown_city")
+    layout.addOptions(endpointInst.filtered, myEndpoint['sort'])
     layout.events(myEndpoint['title'], myEndpoint['docs'])
     submitButton.removeAttribute("disabled")
 }
@@ -44,11 +45,10 @@ function tableauInit() {
 }
 
 layout.elements.homeTab.addEventListener('click', () => {
-    console.dir(endpointInst.tables)
-    tableauInit()
+    layout.addOptions(endpointInst.filtered, myEndpoint['sort'])
 })
 
-submitButton.addEventListener('click', () => {
+submitButton.addEventListener('click', () => {    
     let TCD = {
         page: document.getElementById('page').value,
         per_page: document.getElementById('per-page').value,
@@ -58,6 +58,7 @@ submitButton.addEventListener('click', () => {
         customFilter: document.getElementById('custom-filter').value,
         sortKey: document.getElementById('sort-key').value,
         sortValue: document.getElementById('sort-value').value,
+        columns: endpointInst.filtered
     }
 
     tableau.connectionName = "Patent Connector"

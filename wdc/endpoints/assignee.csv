@@ -3,22 +3,22 @@ true,app_number,applications,Number,string,Y,Application ID assigned by USPTO
 true,app_type,applications,Type,string,Y,"Patent Application Type (From XML data dictionary). 02 through 28 = Utility application; 29, D = Design application; 60 = Provisional application; 90 = Reexamination request"
 true,app_country,applications,Country,string,Y,"Country in which patent application was filed, always U.S."
 true,app_date,applications,Filing Date,date,Y,Date the patent application was filed (filing date)
-true,assignee_lastknown_longitude,assignees,Last Known Longitude,float,N,"Longitude for assignee's location as of their most recent patent grant date (equivalently, as of assignee_last_seen_date)"
-true,assignee_lastknown_state,assignees,Last Known State,string,Y,"Assignee's state as of their most recent patent grant date (equivalently, as of assignee_last_seen_date)"
-true,assignee_lastknown_latitude,assignees,Last Known Latitude,float,N,"Latitude for assignee's location as of their most recent patent grant date (equivalently, as of assignee_last_seen_date)"
-true,assignee_lastknown_location_id,assignees,Last Known Location ID,string,Y,"Unique database ID for the assignee's location on their most recent patent grant date (equivalently, as of assignee_last_seen_date)"
-true,assignee_total_num_patents,assignees,Total Number of Patents,integer,Y,Total number of patents in database for a given assignee (as indicated by unique assignee_id)
-true,assignee_type,assignees,Type,string,Y,"Classification of assignee. 2 - US Company or Corporation, 3 - Foreign Company or Corporation, 4 - US Individual, 5 - Foreign Individual, 6 - US Government, 7 - Foreign Government, 8 - Country Government, 9 - State Government (US). Note: A ""1"" appearing before any of these codes signifies part interest"
-true,assignee_organization,assignees,Organization,string,Y,"Organization name, if assignee is organization"
-true,assignee_total_num_inventors,assignees,Total Number of Inventors,integer,Y,Total number of inventors in database for a given assignee (as indicated by unique assignee_id)
-true,assignee_id,assignees,ID,string,Y,Unique database assignee ID assigned by disambiguation algorithm
-true,assignee_key_id,assignees,Assignee key id,string,N,Special identifier used as the default sort field for the assignee query. This field may be deprecated in a future version.
-true,assignee_first_name,assignees,First Name,string,Y,"First name, if assignee is individual"
-true,assignee_first_seen_date,assignees,First Seen Date,date,Y,Earliest patent grant date for all of an asisgnee's patents in the database
-true,assignee_lastknown_city,assignees,Last Known City,string,Y,"Assignee's country as of their most recent patent grant date (equivalently, as of assignee_last_seen_date)"
-true,assignee_lastknown_country,assignees,Last Known Country,string,Y,"Assignee's city as of their most recent patent grant date (equivalently, as of assignee_last_seen_date)"
-true,assignee_last_name,assignees,Last Name,string,Y,"Last name, if assignee is individual"
-true,assignee_last_seen_date,assignees,Last Seen Date,date,Y,Most recent patent grant date for all of the asisgnee's patents in the database
+false,assignee_lastknown_longitude,assignees,Last Known Longitude,float,N,"Longitude for assignee's location as of their most recent patent grant date (equivalently, as of assignee_last_seen_date)"
+false,assignee_lastknown_state,assignees,Last Known State,string,Y,"Assignee's state as of their most recent patent grant date (equivalently, as of assignee_last_seen_date)"
+false,assignee_lastknown_latitude,assignees,Last Known Latitude,float,N,"Latitude for assignee's location as of their most recent patent grant date (equivalently, as of assignee_last_seen_date)"
+false,assignee_lastknown_location_id,assignees,Last Known Location ID,string,Y,"Unique database ID for the assignee's location on their most recent patent grant date (equivalently, as of assignee_last_seen_date)"
+false,assignee_total_num_patents,assignees,Total Number of Patents,integer,Y,Total number of patents in database for a given assignee (as indicated by unique assignee_id)
+false,assignee_type,assignees,Type,string,Y,"Classification of assignee. 2 - US Company or Corporation, 3 - Foreign Company or Corporation, 4 - US Individual, 5 - Foreign Individual, 6 - US Government, 7 - Foreign Government, 8 - Country Government, 9 - State Government (US). Note: A ""1"" appearing before any of these codes signifies part interest"
+false,assignee_organization,assignees,Organization,string,Y,"Organization name, if assignee is organization"
+false,assignee_total_num_inventors,assignees,Total Number of Inventors,integer,Y,Total number of inventors in database for a given assignee (as indicated by unique assignee_id)
+false,assignee_id,assignees,ID,string,Y,Unique database assignee ID assigned by disambiguation algorithm
+false,assignee_key_id,assignees,Assignee key id,string,N,Special identifier used as the default sort field for the assignee query. This field may be deprecated in a future version.
+false,assignee_first_name,assignees,First Name,string,Y,"First name, if assignee is individual"
+false,assignee_first_seen_date,assignees,First Seen Date,date,Y,Earliest patent grant date for all of an asisgnee's patents in the database
+false,assignee_lastknown_city,assignees,Last Known City,string,Y,"Assignee's country as of their most recent patent grant date (equivalently, as of assignee_last_seen_date)"
+false,assignee_lastknown_country,assignees,Last Known Country,string,Y,"Assignee's city as of their most recent patent grant date (equivalently, as of assignee_last_seen_date)"
+false,assignee_last_name,assignees,Last Name,string,Y,"Last name, if assignee is individual"
+false,assignee_last_seen_date,assignees,Last Seen Date,date,Y,Most recent patent grant date for all of the asisgnee's patents in the database
 true,cpc_subsection_id,cpcs,Subsection ID,string,Y,CPC subsection ID
 true,cpc_subgroup_title,cpcs,Subgroup Title,string,Y,Description of CPC subgroup
 true,cpc_subgroup_id,cpcs,Subgroup ID,string,Y,CPC subgroup ID
@@ -67,8 +67,8 @@ true,inventor_county,inventors,County,string,Y,Inventor's county associated with
 true,inventor_city,inventors,City,string,Y,Inventor's city as listed on the selected patent
 true,inventor_country,inventors,Country,string,Y,Inventor's country as listed on the selected patent
 true,inventor_last_seen_date,inventors,Last Seen Date,date,Y,Most recent patent grant date for all the inventor's patents in the database
-true,inventor_lastknown_city,inventors,Last Known City,string,Y,"Inventor's city as of their most recent patent grant date (equivalently, as of inventor_last_seen_date)"
-true,inventor_last_name,inventors,Last Name,string,Y,Last name of inventor
+false,inventor_lastknown_city,inventors,Last Known City,string,Y,"Inventor's city as of their most recent patent grant date (equivalently, as of inventor_last_seen_date)"
+false,inventor_last_name,inventors,Last Name,string,Y,Last name of inventor
 true,inventor_first_seen_date,inventors,First Seen Date,date,Y,Earliest patent grant date for all the inventor's patents in the database
 true,inventor_id,inventors,ID,string,Y,Unique database inventor ID  by disambiguation algorithm
 true,ipc_subgroup,ipcs,Subgroup,string,Y,Subdivisions of IPC main group

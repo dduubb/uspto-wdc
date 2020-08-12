@@ -148,19 +148,18 @@ true,pct_371_date,pct_data,Date,date,Y,"PCT Section 371(c)(1)(2)(4)date, date wh
 true,pct_date,pct_data,Date,date,Y,Date when PCT document was filed or published 
 true,rawinventor_last_name,rawinventors,Last Name,string,Y,"Inventor last name before disambiguation as listed on the selected patent" 
 true,rawinventor_first_name,rawinventors,First Name,string,Y,"Inventor first name before disambiguation as listed on the selected patent" 
-true,uspc_total_num_patents,uspc_classes,Total Number of Patents,integer,Y,Total number of patents within a USPC mainclass 
-true,uspc_total_num_inventors,uspc_classes,Total Number of Inventors,integer,Y,"Total number of unique inventors on patents within a USPC mainclass" 
-true,uspc_subclass_title,uspc_classes,Subclass Title,string,Y,Description of USPC subclass 
-true,uspc_subclass_id,uspc_classes,Subclass ID,string,Y,ID of USPC subclass 
-true,uspc_total_num_assignees,uspc_classes,Total Number of Assignees,integer,Y,"Total number of unique assignees on patents within a USPC mainclass" 
-true,uspc_last_seen_date,uspc_classes,Last Seen Date,date,Y,"Grant date of the most recent patent in the database within a USPC mainclass" 
-true,uspc_first_seen_date,uspc_classes,First Seen Date,date,Y,"Grant date of the earliest patent in the database within a USPC mainclass" 
-true,uspc_mainclass_title,uspc_classes,Mainclass Title,string,Y,Description of USPC mainclass 
-true,uspc_mainclass_id,uspc_classes,Mainclass ID,string,Y,ID of the USPC mainclass 
-true,wipo_sector_title,wipos,Technology Sector Title,string,Y,Description of WIPO technology sector 
-true,wipo_sequence,wipos,Sequence,integer,Y,"Order of the WIPO technology field in the list of technology fields for the selected patent" 
-true,wipo_field_id,wipos,WIPO Technology Field ID,integer,Y,ID of WIPO technology field 
-true,wipo_field_title,wipos,Technology Field Title,string,Y,Description of WIPO technology field 
-true,year_num_patents_for_uspc_mainclass,years,Number of Patents for USPC Mainclass,integer,N,#N/A 
-true,year_id,years,ID,integer,Y,Year 
-true,
+false,uspc_total_num_patents,uspc_classes,Total Number of Patents,integer,Y,Total number of patents within a USPC mainclass 
+false,uspc_total_num_inventors,uspc_classes,Total Number of Inventors,integer,Y,"Total number of unique inventors on patents within a USPC mainclass" 
+false,uspc_subclass_title,uspc_classes,Subclass Title,string,Y,Description of USPC subclass 
+false,uspc_subclass_id,uspc_classes,Subclass ID,string,Y,ID of USPC subclass 
+false,uspc_total_num_assignees,uspc_classes,Total Number of Assignees,integer,Y,"Total number of unique assignees on patents within a USPC mainclass" 
+false,uspc_last_seen_date,uspc_classes,Last Seen Date,date,Y,"Grant date of the most recent patent in the database within a USPC mainclass" 
+false,uspc_first_seen_date,uspc_classes,First Seen Date,date,Y,"Grant date of the earliest patent in the database within a USPC mainclass" 
+false,uspc_mainclass_title,uspc_classes,Mainclass Title,string,Y,Description of USPC mainclass 
+false,uspc_mainclass_id,uspc_classes,Mainclass ID,string,Y,ID of the USPC mainclass 
+false,wipo_sector_title,wipos,Technology Sector Title,string,Y,Description of WIPO technology sector 
+false,wipo_sequence,wipos,Sequence,integer,Y,"Order of the WIPO technology field in the list of technology fields for the selected patent" 
+false,wipo_field_id,wipos,WIPO Technology Field ID,integer,Y,ID of WIPO technology field 
+false,wipo_field_title,wipos,Technology Field Title,string,Y,Description of WIPO technology field 
+false,year_num_patents_for_uspc_mainclass,years,Number of Patents for USPC Mainclass,integer,N,#N/A 
+false,year_id,years,ID,integer,Y,Year

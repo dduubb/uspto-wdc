@@ -104,15 +104,15 @@ true,lawyer_first_seen_date,lawyers,First Seen Date,date,Y,Earliest patent grant
 true,lawyer_first_name,lawyers,First Name,string,Y,First name of lawyer
 true,lawyer_last_name,lawyers,Last Name,string,Y,Last name of lawyer
 true,lawyer_id,lawyers,ID,string,Y,Unique database lawyer ID  by disambiguation algorithm
-true,nber_subcategory_title,nber_subcategories,Subcategory Title,string,Y,Description of NBER subcategory
-true,nber_subcategory_id,nber_subcategories,Subcategory ID,string,Y,NBER subcategory ID (see nber_subcategory_title for details)
-true,nber_total_num_assignees,nber_subcategories,Total Number of Assignees,integer,Y,Total number of unique assignees on patents within a NBER subcategory
-true,nber_total_num_patents,nber_subcategories,Total Number of Patents,integer,Y,Total number of patents within a NBER subcategory
-true,nber_total_num_inventors,nber_subcategories,Total Number of Inventors,integer,Y,Total number of unique inventors on patents within a NBER subcategory
-true,nber_category_title,nber_subcategories,Category Title,string,Y,Description of NBER category
-true,nber_category_id,nber_subcategories,Category ID,string,Y,National Bureau of Economic Research (NBER) technology category ID (see nber_category_title for details)
-true,nber_last_seen_date,nber_subcategories,Last Seen Date,date,Y,Grant date of the most recent patent in the database within a NBER subcategory
-true,nber_first_seen_date,nber_subcategories,First Seen Date,date,Y,Grant date of the earliest patent in the database within a NBER subcategory
+false,nber_subcategory_title,nber_subcategories,Subcategory Title,string,Y,Description of NBER subcategory
+false,nber_subcategory_id,nber_subcategories,Subcategory ID,string,Y,NBER subcategory ID (see nber_subcategory_title for details)
+false,nber_total_num_assignees,nber_subcategories,Total Number of Assignees,integer,Y,Total number of unique assignees on patents within a NBER subcategory
+false,nber_total_num_patents,nber_subcategories,Total Number of Patents,integer,Y,Total number of patents within a NBER subcategory
+false,nber_total_num_inventors,nber_subcategories,Total Number of Inventors,integer,Y,Total number of unique inventors on patents within a NBER subcategory
+false,nber_category_title,nber_subcategories,Category Title,string,Y,Description of NBER category
+false,nber_category_id,nber_subcategories,Category ID,string,Y,National Bureau of Economic Research (NBER) technology category ID (see nber_category_title for details)
+false,nber_last_seen_date,nber_subcategories,Last Seen Date,date,Y,Grant date of the most recent patent in the database within a NBER subcategory
+false,nber_first_seen_date,nber_subcategories,First Seen Date,date,Y,Grant date of the earliest patent in the database within a NBER subcategory
 true,patent_kind,patents,Kind,string,Y,World Intellectual Property Organization (WIPO) Standard ST.16 Patent Code (http://www.uspto.gov/learning-and-resources/support-centers/electronic-business-center/kind-codes-included-uspto-patent)
 true,patent_num_cited_by_us_patents,patents,Number Cited by US Patents,integer,Y,Number of times the patent was cited by other US patents
 true,patent_num_claims,patents,Number of Claims,integer,N,Number of claim statements on the patent
@@ -164,4 +164,3 @@ true,wipo_field_id,wipos,WIPO Technology Field ID,integer,Y,ID of WIPO technolog
 true,wipo_field_title,wipos,Technology Field Title,string,Y,Description of WIPO technology field
 true,year_num_patents_for_nber_subcategory,years,Number of Patents for NBER Subcategory,integer,N,Number of patents within a NBER subcategory for a given year
 true,year_id,years,ID,integer,Y,Year
-true,

@@ -139,28 +139,28 @@ true,patent_firstnamed_inventor_location_id,patents,First Named Inventor Locatio
 true,patent_firstnamed_inventor_longitude,patents,First Named Inventor Longitude,float,N,Longitude of the location of the first-named (i.e. first in the list) inventor on the patent
 true,patent_firstnamed_inventor_state,patents,First Named Inventor State,string,Y,State of the location of the first-named (i.e. first in the list) inventor on the patent
 true,patent_num_foreign_citations,patents,Number of Foreign Citations,integer,Y,Number of foreign patents cited by the selected patent
-true,patent_title,patents,Title,full text,Y,Title of the  patent
-true,patent_type,patents,Type,string,Y,"Category of patent. There are 6 possible type: ""Defensive Publication"" - 509, ""Design"" - 474736, ""Plant"" - 21052, ""Reissue"" - 16416, ""Statutory Invention Registration"" - 2254, ""Utility"" - 4910906."
-true,patent_year,patents,Year,integer,Y,Year patent was granted
-true,patent_processing_time,patents,Processing Time,integer,Y,Time from filing application date to grant date for the patent
-true,patent_num_us_application_citations,patents,Number of US Application Citations,integer,Y,Number of US applications cited by the selected patent
-true,patent_num_us_patent_citations,patents,Number of US Patent Citations,integer,Y,Number of US patents cited by the selected patent
-true,patent_number,patents,Number,string,Y,"US Patent number, as assigned by USPTO"
-true,patent_firstnamed_assignee_city,patents,First Named Assignee City,string,Y,City of the location of the first-named (i.e. first in the list) assignee on the patent
-true,patent_firstnamed_assignee_country,patents,First Named Assignee Country,string,Y,Country of the location of the first-named (i.e. first in the list) assignee on the patent
-true,patent_firstnamed_assignee_id,patents,First Named Assignee ID,string,Y,Assignee ID (assignee_id) for the first-named (i.e. first in the list) assignee on the patent
-true,patent_date,patents,Grant Date,date,Y,Date patent was granted
-true,detail_desc_length,patents,Length of the detailed description text,integer,Y,The character count (length) of the detailed description text on a given patent
-true,patent_abstract,patents,Abstract,full text,Y,Abstract of the patent
-true,patent_average_processing_time,patents,Average Processing Time,integer,Y,Average processing time for patents in the same USPC mainclass category as the selected patent
-true,patent_firstnamed_assignee_latitude,patents,First Named Assignee Latitude,float,N,Latitude of the location of the first-named (i.e. first in the list) assignee on the patent
-true,patent_firstnamed_inventor_country,patents,First Named Inventor Country,string,Y,Country of the location of the first-named (i.e. first in the list) inventor on the patent
-true,patent_firstnamed_inventor_id,patents,First Named Inventor ID,string,Y,Inventor ID (inventor_id) for the first-named (i.e. first in the list) inventor on the patent
-true,patent_firstnamed_inventor_latitude,patents,First Named Inventor Latitude,float,N,Latitude of the location of the first-named (i.e. first in the list) inventor on the patent
-true,patent_firstnamed_inventor_city,patents,First Named Inventor City,string,Y,City of the location of the the first-named (i.e. first in the list) inventor on the patent
-true,patent_firstnamed_assignee_location_id,patents,First Named Assignee Location ID,string,Y,Unique database ID for the location of the first-named (i.e. first in the list) assignee on the patent
-true,patent_firstnamed_assignee_longitude,patents,First Named Assignee Longitude,float,N,Longitude of the location of the first-named (i.e. first in the list) assignee on the patent
-true,patent_firstnamed_assignee_state,patents,First Named Assignee State,string,Y,State of the location of the the first-named (i.e. first in the list) assignee on the patent
+false,patent_title,patents,Title,full text,Y,Title of the  patent
+false,patent_type,patents,Type,string,Y,"Category of patent. There are 6 possible type: ""Defensive Publication"" - 509, ""Design"" - 474736, ""Plant"" - 21052, ""Reissue"" - 16416, ""Statutory Invention Registration"" - 2254, ""Utility"" - 4910906."
+false,patent_year,patents,Year,integer,Y,Year patent was granted
+false,patent_processing_time,patents,Processing Time,integer,Y,Time from filing application date to grant date for the patent
+false,patent_num_us_application_citations,patents,Number of US Application Citations,integer,Y,Number of US applications cited by the selected patent
+false,patent_num_us_patent_citations,patents,Number of US Patent Citations,integer,Y,Number of US patents cited by the selected patent
+false,patent_number,patents,Number,string,Y,"US Patent number, as assigned by USPTO"
+false,patent_firstnamed_assignee_city,patents,First Named Assignee City,string,Y,City of the location of the first-named (i.e. first in the list) assignee on the patent
+false,patent_firstnamed_assignee_country,patents,First Named Assignee Country,string,Y,Country of the location of the first-named (i.e. first in the list) assignee on the patent
+false,patent_firstnamed_assignee_id,patents,First Named Assignee ID,string,Y,Assignee ID (assignee_id) for the first-named (i.e. first in the list) assignee on the patent
+false,patent_date,patents,Grant Date,date,Y,Date patent was granted
+false,detail_desc_length,patents,Length of the detailed description text,integer,Y,The character count (length) of the detailed description text on a given patent
+false,patent_abstract,patents,Abstract,full text,Y,Abstract of the patent
+false,patent_average_processing_time,patents,Average Processing Time,integer,Y,Average processing time for patents in the same USPC mainclass category as the selected patent
+false,patent_firstnamed_assignee_latitude,patents,First Named Assignee Latitude,float,N,Latitude of the location of the first-named (i.e. first in the list) assignee on the patent
+false,patent_firstnamed_inventor_country,patents,First Named Inventor Country,string,Y,Country of the location of the first-named (i.e. first in the list) inventor on the patent
+false,patent_firstnamed_inventor_id,patents,First Named Inventor ID,string,Y,Inventor ID (inventor_id) for the first-named (i.e. first in the list) inventor on the patent
+false,patent_firstnamed_inventor_latitude,patents,First Named Inventor Latitude,float,N,Latitude of the location of the first-named (i.e. first in the list) inventor on the patent
+false,patent_firstnamed_inventor_city,patents,First Named Inventor City,string,Y,City of the location of the the first-named (i.e. first in the list) inventor on the patent
+false,patent_firstnamed_assignee_location_id,patents,First Named Assignee Location ID,string,Y,Unique database ID for the location of the first-named (i.e. first in the list) assignee on the patent
+false,patent_firstnamed_assignee_longitude,patents,First Named Assignee Longitude,float,N,Longitude of the location of the first-named (i.e. first in the list) assignee on the patent
+false,patent_firstnamed_assignee_state,patents,First Named Assignee State,string,Y,State of the location of the the first-named (i.e. first in the list) assignee on the patent
 true,pct_docnumber,pct_data,Number,string,Y,ID of the PCT document
 true,pct_doctype,pct_data,Type,string,Y,"Type of the PCT document (wo_grant, pct_application)"
 true,pct_kind,pct_data,Kind,string,Y,"Kind of PCT application (numerical for filed, alphabetical for published)"
@@ -183,4 +183,3 @@ true,wipo_sector_title,wipos,Technology Sector Title,string,Y,Description of WIP
 true,wipo_sequence,wipos,Sequence,integer,Y,Order of the WIPO technology field in the list of technology fields for the selected patent
 true,wipo_field_id,wipos,WIPO Technology Field ID,integer,Y,ID of WIPO technology field
 true,wipo_field_title,wipos,Technology Field Title,string,Y,Description of WIPO technology field
-true,

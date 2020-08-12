@@ -28,19 +28,19 @@ true,assignee_lastknown_latitude,assignees,Last Known Latitude,float,N,"Latitude
 true,assignee_id,assignees,ID,string,Y,Unique database assignee ID assigned by disambiguation algorithm
 true,assignee_last_name,assignees,Last Name,string,Y,"Last name, if assignee is individual"
 true,assignee_last_seen_date,assignees,Last Seen Date,date,Y,Most recent patent grant date for all of the asisgnee's patents in the database
-true,cpc_subgroup_id,cpc_subgroups,Subgroup ID,string,Y,CPC subgroup ID
-true,cpc_subgroup_title,cpc_subgroups,Subgroup Title,string,Y,Description of CPC subgroup
-true,cpc_group_id,cpc_subgroups,Group ID,string,Y,CPC group ID
-true,cpc_group_title,cpc_subgroups,Group Title,string,Y,Description of CPC group
-true,cpc_total_num_assignees,cpc_subsections,Total Number of Assignees,integer,Y,Total number of unique assignees on patents within a CPC subsection
-true,cpc_subsection_title,cpc_subsections,Subsection Title,string,Y,Description of CPC subsection
-true,cpc_total_num_patents,cpc_subsections,Total Number of Patents,integer,Y,Total number of patents within a CPC subsection
-true,cpc_total_num_inventors,cpc_subsections,Total Number of Inventors,integer,Y,Total number of unique inventors on patents within a CPC subsection
-true,cpc_subsection_id,cpc_subsections,Subsection ID,string,Y,CPC subsection ID
-true,cpc_first_seen_date,cpc_subsections,First Seen Date,date,Y,Grant date of the earliest patent in the database within a CPC subsection.
-true,cpc_category,cpc_subsections,Category,string,Y,Top Level Cooperative Patent Classification (CPC) category (http://www.cooperativepatentclassification.org/index.html)
-true,cpc_section_id,cpc_subsections,Section ID,string,Y,"CPC section ID (A = Human Necessitites, B = Performing Operations; Transporint, C = Chemistry; Metallurgy, D = Textiles; paper, E = Fixed Constructing, F = Mechanical Engineering; Lighting; Heating; Weapons; Blasting Engines; Pumps, G = Physics, H = Electricity, Y = General Tagging of new technological developments)"
-true,cpc_last_seen_date,cpc_subsections,Last Seen Date,date,Y,Grant date of the most recent patent in the database within a CPC subsection
+false,cpc_subgroup_id,cpc_subgroups,Subgroup ID,string,Y,CPC subgroup ID
+false,cpc_subgroup_title,cpc_subgroups,Subgroup Title,string,Y,Description of CPC subgroup
+false,cpc_group_id,cpc_subgroups,Group ID,string,Y,CPC group ID
+false,cpc_group_title,cpc_subgroups,Group Title,string,Y,Description of CPC group
+false,cpc_total_num_assignees,cpc_subsections,Total Number of Assignees,integer,Y,Total number of unique assignees on patents within a CPC subsection
+false,cpc_subsection_title,cpc_subsections,Subsection Title,string,Y,Description of CPC subsection
+false,cpc_total_num_patents,cpc_subsections,Total Number of Patents,integer,Y,Total number of patents within a CPC subsection
+false,cpc_total_num_inventors,cpc_subsections,Total Number of Inventors,integer,Y,Total number of unique inventors on patents within a CPC subsection
+false,cpc_subsection_id,cpc_subsections,Subsection ID,string,Y,CPC subsection ID
+false,cpc_first_seen_date,cpc_subsections,First Seen Date,date,Y,Grant date of the earliest patent in the database within a CPC subsection.
+false,cpc_category,cpc_subsections,Category,string,Y,Top Level Cooperative Patent Classification (CPC) category (http://www.cooperativepatentclassification.org/index.html)
+false,cpc_section_id,cpc_subsections,Section ID,string,Y,"CPC section ID (A = Human Necessitites, B = Performing Operations; Transporint, C = Chemistry; Metallurgy, D = Textiles; paper, E = Fixed Constructing, F = Mechanical Engineering; Lighting; Heating; Weapons; Blasting Engines; Pumps, G = Physics, H = Electricity, Y = General Tagging of new technological developments)"
+false,cpc_last_seen_date,cpc_subsections,Last Seen Date,date,Y,Grant date of the most recent patent in the database within a CPC subsection
 true,examiner_last_name,examiners,Last name,string,Y,Last name of examiner
 true,examiner_role,examiners,Role,string,Y,Specifies the role of the examiner on the patent (either primary or assistant examiner)
 true,examiner_group,examiners,Group,string,Y,"Art unit, tech center, industry sector, or other grouping of the USPTO examiners"
@@ -120,8 +120,8 @@ true,patent_firstnamed_inventor_location_id,patents,First Named Inventor Locatio
 true,patent_firstnamed_inventor_longitude,patents,First Named Inventor Longitude,float,N,Longitude of the location of the first-named (i.e. first in the list) inventor on the patent
 true,patent_firstnamed_inventor_state,patents,First Named Inventor State,string,Y,State of the location of the first-named (i.e. first in the list) inventor on the patent
 true,patent_num_combined_citations,patents,Number of Combined Citations,integer,Y,"Number of patents and applications cited by the selected patent. This is the sum of citations of US patents, foreign patents, and US applications"
-true,patent_number,patents,Number,string,Y,"US Patent number, as assigned by USPTO"
-true,patent_title,patents,Title,full text,Y,Title of the  patent
+false,patent_number,patents,Number,string,Y,"US Patent number, as assigned by USPTO"
+false,patent_title,patents,Title,full text,Y,Title of the  patent
 true,patent_type,patents,Type,string,Y,"Category of patent. There are 6 possible type: ""Defensive Publication"" - 509, ""Design"" - 474736, ""Plant"" - 21052, ""Reissue"" - 16416, ""Statutory Invention Registration"" - 2254, ""Utility"" - 4910906."
 true,patent_num_foreign_citations,patents,Number of Foreign Citations,integer,Y,Number of foreign patents cited by the selected patent
 true,patent_num_us_application_citations,patents,Number of US Application Citations,integer,Y,Number of US applications cited by the selected patent
@@ -132,7 +132,7 @@ true,patent_firstnamed_assignee_country,patents,First Named Assignee Country,str
 true,patent_firstnamed_assignee_id,patents,First Named Assignee ID,string,Y,Assignee ID (assignee_id) for the first-named (i.e. first in the list) assignee on the patent
 true,detail_desc_length,patents,Length of the detailed description text,integer,Y,The character count (length) of the detailed description text on a given patent
 true,patent_abstract,patents,Abstract,full text,N,Abstract of the patent
-true,patent_date,patents,Grant Date,date,Y,Date patent was granted
+false,patent_date,patents,Grant Date,date,Y,Date patent was granted
 true,patent_firstnamed_assignee_latitude,patents,First Named Assignee Latitude,float,N,Latitude of the location of the first-named (i.e. first in the list) assignee on the patent
 true,patent_firstnamed_inventor_city,patents,First Named Inventor City,string,Y,City of the location of the the first-named (i.e. first in the list) inventor on the patent
 true,patent_firstnamed_inventor_country,patents,First Named Inventor Country,string,Y,Country of the location of the first-named (i.e. first in the list) inventor on the patent
@@ -164,4 +164,3 @@ true,wipo_field_id,wipos,WIPO Technology Field ID,integer,Y,ID of WIPO technolog
 true,wipo_field_title,wipos,Technology Field Title,string,Y,Description of WIPO technology field
 true,year_num_patents_for_cpc_subsection,years,Number of Patents for CPC Subsection,integer,N,Number of patents within a CPC subsection for a given year
 true,year_id,years,ID,integer,Y,Year
-true,
