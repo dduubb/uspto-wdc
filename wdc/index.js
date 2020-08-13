@@ -12,7 +12,7 @@ init(url)
 
 async function init(url) {
     let dataObj = await loadCSV(url)
-    dataObj = tableau.phase === "interactive" ? dataObj : JSON.parse(tableau.connectionData).columns 
+    dataObj = tableau.phase !== "gatherData" ? dataObj : JSON.parse(tableau.connectionData).columns 
     endpointInst = new EndpointProto(dataObj, myEndpoint['filename'])
     layout.renderTable(endpointInst.full)
     layout.addOptions(endpointInst.filtered, myEndpoint['sort'])
@@ -24,7 +24,6 @@ tableauInit()
 function tableauInit() {
     myConnector = tableau.makeConnector()
     myConnector.getSchema = (schemaCallback) => {
-        console.dir(endpointInst.tables)
         schemaCallback(endpointInst.tables)
     }
     myConnector.getData = (table, doneCallback) => {
